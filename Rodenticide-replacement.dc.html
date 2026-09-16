@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #F8F7F1; }
+  body { -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #3E637F; text-decoration-color: rgba(62, 99, 127, 0.45); text-underline-offset: 3px; }
+  a:hover { color: #8D361B; text-decoration-color: #8D361B; }
+</style>
+</helmet>
+<div style="background: #F8F7F1; color: #2A2A2E; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; min-height: 100vh; display: flex; flex-direction: column;">
+
+  <header ref="{{ headerRef }}" style="position: sticky; top: 0; z-index: 20; background: #F8F7F1; border-bottom: 1px solid rgba(141, 54, 27, 0.22); transition: background 180ms ease, box-shadow 180ms ease;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: end; border-bottom: 1px solid #8D361B; padding-bottom: 10px;">
+        <a href="Wildlife%20Technology%20Fund.dc.html" style="font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 400; color: #5E7D93; letter-spacing: 0.005em; padding-top: 26px; white-space: nowrap; text-decoration: none;">Wildlife Technology Fund</a>
+        <div style="display: flex; align-items: center; gap: 26px; border-top: 1px solid #8D361B; padding-top: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="assets/rp-icon.png" alt="Renaissance Philanthropy" style="width: 26px; height: 32px; object-fit: contain; display: block;" />
+            <a href="https://www.renaissancephilanthropy.org/" target="_blank" rel="noopener" style="font-size: 12.5px; line-height: 1.45; color: #2A2A2E; text-decoration: none;" style-hover="color: #8D361B;">
+              <div>A program of</div>
+              <div style="font-weight: 700;">Renaissance Philanthropy</div>
+            </a>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 3px; font-size: 12.5px; line-height: 1.45;">
+            <a href="https://www.renaissancephilanthropy.org/what-we-do/" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">&#8599; Explore other programs</a>
+            <a href="https://www.renaissancephilanthropy.org/our-thesis" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">&#8599; Learn more</a>
+          </div>
+        </div>
+      </div>
+      <nav style="display: flex; gap: 34px; padding: 13px 0 14px; font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 400; color: #3E637F;">
+        <a href="About.dc.html" style="text-decoration: none;">About</a>
+        <a href="Current-programs.dc.html" style="text-decoration: none; color: #8D361B;">Current programs</a>
+        <a href="Join-us.dc.html" style="text-decoration: none;">Join us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="flex: 1;">
+    <section data-screen-label="Program title" style="max-width: 1180px; margin: 0 auto; padding: 56px 32px 0;">
+      <a href="Current-programs.dc.html" style="font-size: 13.5px; text-decoration: none; color: rgba(42, 42, 46, 0.7);" style-hover="color: #8D361B;">&larr; Current programs</a>
+      <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; padding-top: 26px;">
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <span style="align-self: flex-start; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #8D361B; border: 1px solid rgba(141, 54, 27, 0.45); border-radius: 999px; padding: 5px 11px;">In design</span>
+        </div>
+        <div style="max-width: 68ch;">
+          <h1 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 42px; font-weight: 700; line-height: 1.08; color: #3E637F; letter-spacing: -0.005em;">Rodenticide Replacement Program</h1>
+          <p style="margin: 20px 0 0; font-size: 20px; line-height: 1.55; color: #2A2A2E; max-width: 46ch; text-wrap: pretty;">A five-year, $30M coordinated research program to tackle rodent fertility control.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 28px; padding-top: 28px; border-top: 1px solid rgba(62, 99, 127, 0.25); margin-top: 28px;">
+            <div>
+              <div style="font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(42, 42, 46, 0.55);">Budget</div>
+              <div style="font-size: 16px; padding-top: 4px;">$30M over five years</div>
+            </div>
+            <div>
+              <div style="font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(42, 42, 46, 0.55);">Program lead</div>
+              <div style="font-size: 16px; padding-top: 4px;">Dr. Mal Graham</div>
+            </div>
+            <div>
+              <div style="font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(42, 42, 46, 0.55);">Status</div>
+              <div style="font-size: 16px; padding-top: 4px;">Ready to launch, pending funding</div>
+            </div>
+          </div>
+          <p style="margin: 22px 0 0; font-size: 15.5px; line-height: 1.6; color: rgba(42, 42, 46, 0.8);">Developed through the BiTS program, part of Renaissance Philanthropy. Interested parties can reach Mal Graham at <a href="mailto:mal.graham@renphil.org">mal.graham@renphil.org</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="The problem" style="max-width: 1180px; margin: 0 auto; padding: 66px 32px 0;">
+      <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; padding-top: 52px; border-top: 1px solid rgba(141, 54, 27, 0.25);">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #3E637F; letter-spacing: -0.01em;">The problem</h2>
+        <div style="display: flex; flex-direction: column; gap: 30px;">
+          <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; max-width: 68ch; text-wrap: pretty;">Globally, rodents cause major economic, public health, and conservation damage.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <div style="flex: 1 1 250px; min-width: 0; background: #3E637F; border-radius: 14px; padding: 24px 22px; display: flex; flex-direction: column; gap: 14px;">
+              <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 30px; color: #F1F4F3; line-height: 1;">10&ndash;50%</div>
+              <div style="font-size: 14.5px; line-height: 1.52; color: #C6D3DB;">Rice yield lost pre-harvest in traditional Asian farming systems &mdash; chronic losses of 10%, above 50% in outbreak years. Australia&rsquo;s 2021 mouse plague alone cost around A$100 million.</div>
+            </div>
+            <div style="flex: 1 1 250px; min-width: 0; background: #3E637F; border-radius: 14px; padding: 24px 22px; display: flex; flex-direction: column; gap: 14px;">
+              <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 30px; color: #F1F4F3; line-height: 1;">1.03M</div>
+              <div style="font-size: 14.5px; line-height: 1.52; color: #C6D3DB;">Estimated leptospirosis cases per year, borne mostly by marginalized communities. Rodents are also a reservoir for plague and Lassa fever, and urban mouse allergen exposure tracks asthma morbidity in children.</div>
+            </div>
+            <div style="flex: 1 1 250px; min-width: 0; background: #3E637F; border-radius: 14px; padding: 24px 22px; display: flex; flex-direction: column; gap: 14px;">
+              <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 30px; color: #F1F4F3; line-height: 1;">75 + 420</div>
+              <div style="font-size: 14.5px; line-height: 1.52; color: #C6D3DB;">Invasive rodents are implicated in 75 extinctions, with five species alone threatening 420 more. On islands they are often the number one conservation risk.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Why rodenticides fail" style="max-width: 1180px; margin: 0 auto; padding: 60px 32px 0;">
+      <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; padding-top: 52px; border-top: 1px solid rgba(141, 54, 27, 0.25);">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #3E637F; letter-spacing: -0.01em;">Why rodenticides don&rsquo;t solve it</h2>
+        <div style="display: flex; flex-direction: column; gap: 18px; max-width: 68ch;">
+          <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">These problems persist despite widespread rodenticide use because of two forces: <strong>immigration</strong> &mdash; rodents from adjacent areas move into cleared ground &mdash; and <strong>compensatory survival</strong> &mdash; smaller populations mean more resources per animal, so more juveniles survive. The result is rapid rebound. In a recent field experiment, rodenticide plus intensive trapping cut multimammate mouse populations by 74&ndash;92%, and populations returned to pre-treatment levels within six months.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">Worse, the migration rodenticides provoke accelerates disease spread. In Vancouver, lethal rat control was associated with a nearly tenfold increase in the odds that surviving rats carried leptospirosis.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">Preventing rebound would require treating every connected patch of suitable habitat, repeatedly, at once. No available rodenticide is safe enough to use that way:</p>
+          <div style="display: flex; flex-direction: column; gap: 16px; padding-left: 2px;">
+            <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 12px;">
+              <div style="width: 7px; height: 7px; border-radius: 50%; background: #8D361B; margin-top: 10px;"></div>
+              <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;"><strong>Direct threats to human health.</strong> Metal phosphides are common in low- and middle-income countries, where SGAR access is limited and illegal sales are extensive. They work by producing phosphine gas &mdash; deadly to humans, pets and livestock, with no antidote. In India, 54% of ingestions are fatal, likely causing thousands to tens of thousands of deaths a year.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 12px;">
+              <div style="width: 7px; height: 7px; border-radius: 50%; background: #8D361B; margin-top: 10px;"></div>
+              <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;"><strong>Harms to wildlife.</strong> Second-generation anticoagulants linger in rodents and poison the animals that eat them, undermining natural rodent control. Despite restrictions, clinically significant exposure has been found across non-target wildlife &mdash; rodenticides appear in the livers of 82% of bald eagles and 95% of cougars tested in the US.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="The solution" style="max-width: 1180px; margin: 0 auto; padding: 60px 32px 0;">
+      <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; padding-top: 52px; border-top: 1px solid rgba(141, 54, 27, 0.25);">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #3E637F; letter-spacing: -0.01em;">The solution</h2>
+        <div style="display: flex; flex-direction: column; gap: 30px;">
+          <div style="display: flex; flex-direction: column; gap: 18px; max-width: 68ch;">
+            <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">The program funds a portfolio of approaches to alternatives that are safe to apply at scale &mdash; effective population control without the externalities. Fertility control is the best bet, for two reasons. The lab rat is a domesticated brown rat, one of the most problematic species, which means nearly every compound explored for human contraception has already been tested in our target animal. And developments in human vaccine delivery, plus self-spreading rabies vaccination in wildlife, are directly relevant to species-specific immunocontraceptives.</p>
+            <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">A complete solution has three parts, and no team today holds all three.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <div style="flex: 1 1 240px; min-width: 0; border: 1px solid rgba(62, 99, 127, 0.3); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 10px; background: #FFFDF7;">
+              <div style="font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #8D361B;">Cargo</div>
+              <div style="font-size: 17px; color: #3E637F;">Active ingredient</div>
+              <div style="font-size: 14.5px; line-height: 1.52; color: #2A2A2E;">Immunocontraceptive vaccines or chemosterilants that cut fecundity by at least 80% for at least three months &mdash; one cropping season.</div>
+            </div>
+            <div style="flex: 1 1 240px; min-width: 0; border: 1px solid rgba(62, 99, 127, 0.3); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 10px; background: #FFFDF7;">
+              <div style="font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #8D361B;">Micro-delivery</div>
+              <div style="font-size: 17px; color: #3E637F;">Pharmacokinetic pathway</div>
+              <div style="font-size: 14.5px; line-height: 1.52; color: #2A2A2E;">Getting a consumed ingredient past the digestive tract to the target organs: mucoadhesives, nanoencapsulation, processed pollen grains.</div>
+            </div>
+            <div style="flex: 1 1 240px; min-width: 0; border: 1px solid rgba(62, 99, 127, 0.3); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 10px; background: #FFFDF7;">
+              <div style="font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #8D361B;">Macro-delivery</div>
+              <div style="font-size: 17px; color: #3E637F;">Remote delivery</div>
+              <div style="font-size: 14.5px; line-height: 1.52; color: #2A2A2E;">Reaching whole landscapes: aerial oral baits, transferable grooming-activated formulations, tracking powders with safe cargo.</div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 18px; max-width: 68ch;">
+            <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">Precedent exists: contraceptives already manage pigeons, horses and elephants, and aerial rabies vaccination of wildlife has been extraordinarily successful. Even short of outperforming rodenticides everywhere, fertility control would complement them &mdash; reaching bait-shy individuals and giving a safe option for areas with children, refugees and other vulnerable populations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Why now" style="max-width: 1180px; margin: 0 auto; padding: 60px 32px 0;">
+      <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; padding-top: 52px; border-top: 1px solid rgba(141, 54, 27, 0.25);">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #3E637F; letter-spacing: -0.01em;">Why now</h2>
+        <div style="display: flex; flex-direction: column; gap: 18px; max-width: 68ch;">
+          <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">The demand signal is already here. California and British Columbia have banned some classes of rodenticide, other US jurisdictions are contemplating ending the exemptions that let rodenticides bypass normal pesticide rules, and most strikingly the EU has designated SGARs as &ldquo;candidates for substitution&rdquo; &mdash; meaning that once a safe and effective alternative exists, they will no longer be approved.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">Nobody is positioned to supply that alternative. One company has sold rodent fertility control products in the US since 2016, but they are widely considered ineffective and insufficiently tested. A hormonal product is in use in China and Tanzania, but EU and US regulators have signalled they will not approve environmental administration of hormone-based products. The rodenticide industry itself is not pursuing fertility control: contacts say they would adopt and produce an effective product, but are averse to funding the R&amp;D.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">Meanwhile the research community is systematically underfunded &mdash; too applied for NSF, too distant from human health for NIH, too early for commercial investment &mdash; and the relevant innovations sit in widely separated disciplines, from food science to vaccine delivery. Without coordinated investment, the emerging bans will push rodent control backward toward historical options rather than forward.</p>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Our approach" style="max-width: 1180px; margin: 0 auto; padding: 60px 32px 0;">
+      <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; padding-top: 52px; border-top: 1px solid rgba(141, 54, 27, 0.25);">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #3E637F; letter-spacing: -0.01em;">Our approach</h2>
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div style="display: flex; flex-direction: column; gap: 18px; max-width: 68ch;">
+            <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">We are seeking $30 million to advance a portfolio of approaches targeting landscape delivery of rodent contraception. Philanthropic investment supports parallel exploration of multiple delivery&ndash;cargo combinations, so funding can concentrate on the options that show the most potential.</p>
+            <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">Candidate compounds are tested in the lab for effectiveness, safety and specificity; survivors move to controlled field settings, with a target of advancing two to three compound&ndash;delivery pairings into field efficacy trials by month 36. To break the siloing that has slowed this field for decades, the program opens with a six-month matchmaking process that forces integration across reproductive biology, vaccine engineering, formulation chemistry, animal behaviour and field logistics.</p>
+          </div>
+
+          <div>
+            <div style="font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(42, 42, 46, 0.55); padding-bottom: 12px;">Five target species</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <span style="font-size: 14.5px; color: #3E637F; border: 1px solid rgba(62, 99, 127, 0.35); border-radius: 999px; padding: 7px 15px;">Brown rat</span>
+              <span style="font-size: 14.5px; color: #3E637F; border: 1px solid rgba(62, 99, 127, 0.35); border-radius: 999px; padding: 7px 15px;">Black rat</span>
+              <span style="font-size: 14.5px; color: #3E637F; border: 1px solid rgba(62, 99, 127, 0.35); border-radius: 999px; padding: 7px 15px;">Ricefield rat</span>
+              <span style="font-size: 14.5px; color: #3E637F; border: 1px solid rgba(62, 99, 127, 0.35); border-radius: 999px; padding: 7px 15px;">House mouse</span>
+              <span style="font-size: 14.5px; color: #3E637F; border: 1px solid rgba(62, 99, 127, 0.35); border-radius: 999px; padding: 7px 15px;">Multimammate mouse</span>
+            </div>
+            <p style="margin: 14px 0 0; font-size: 15px; line-height: 1.55; color: rgba(42, 42, 46, 0.75); max-width: 60ch;">These five are responsible for the vast majority of agricultural, conservation and human health damage worldwide.</p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(42, 42, 46, 0.55); padding-bottom: 4px;">Draft program structure</div>
+            <div style="display: grid; grid-template-columns: 96px minmax(0, 1fr) 96px; gap: 1px; background: rgba(62, 99, 127, 0.22); border: 1px solid rgba(62, 99, 127, 0.22); border-radius: 12px; overflow: hidden; font-size: 14.5px;">
+              <div style="background: #EFEDE3; padding: 12px 16px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #3E637F;">Phase</div>
+              <div style="background: #EFEDE3; padding: 12px 16px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #3E637F;">Activity</div>
+              <div style="background: #EFEDE3; padding: 12px 16px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #3E637F; text-align: right;">Budget</div>
+
+              <div style="background: #FFFDF7; padding: 16px; color: #8D361B;">0</div>
+              <div style="background: #FFFDF7; padding: 16px; line-height: 1.55;">Discovery and matchmaking. Convene vaccinologists, bait engineers, viral vector specialists, immunologists, behavioural ecologists, commercialization specialists and end users. Run workshops to build paired teams, finalize the evaluation framework, and issue a paired-team RFP. Ecology and modeling teams build the target product profile for each species; the validation team stands up shared assays, regulatory navigation and IP framework.</div>
+              <div style="background: #FFFDF7; padding: 16px; text-align: right; white-space: nowrap;">$2M</div>
+
+              <div style="background: #FFFDF7; padding: 16px; color: #8D361B;">1</div>
+              <div style="background: #FFFDF7; padding: 16px; line-height: 1.55;">Four to six teams advance their approach in the lab &mdash; fertility, behaviour and welfare effects plus environmental concerns &mdash; while developing delivery matched to their compound&rsquo;s stability and specificity constraints. Modeling quantifies the efficacy &times; reach &times; duration &times; area combinations needed for population-level impact.<div style="padding-top: 10px; color: #8D361B; font-size: 13.5px;">Gate 1: a credible path to realistic targets for stability, specificity and scale, affirmed by the modeling and validation teams.</div></div>
+              <div style="background: #FFFDF7; padding: 16px; text-align: right; white-space: nowrap;">$10M</div>
+
+              <div style="background: #FFFDF7; padding: 16px; color: #8D361B;">2</div>
+              <div style="background: #FFFDF7; padding: 16px; line-height: 1.55;">Teams refine formulations against delivery constraints; selected delivery teams scale prototypes and validate species-specificity in controlled non-target exposure studies. Modeling designs mesocosm protocols calibrated to each team&rsquo;s targets.<div style="padding-top: 10px; color: #8D361B; font-size: 13.5px;">Gate 2: progress at 50% of Phase 1 targets. Teams clearly below threshold are cut and resources reallocated.</div></div>
+              <div style="background: #FFFDF7; padding: 16px; text-align: right; white-space: nowrap;">$10M</div>
+
+              <div style="background: #FFFDF7; padding: 16px; color: #8D361B;">3</div>
+              <div style="background: #FFFDF7; padding: 16px; line-height: 1.55;">The final one to two ingredient&ndash;delivery combinations go into mesocosm trials at ecologically relevant scale. Results inform regulatory submissions and go-to-market strategy; winning teams may receive FRO-scale follow-on funding.<div style="padding-top: 10px; color: #8D361B; font-size: 13.5px;">Gate 3: 80% of defined targets under mesocosm conditions triggers commercial handoff.</div></div>
+              <div style="background: #FFFDF7; padding: 16px; text-align: right; white-space: nowrap;">$8M</div>
+            </div>
+            <p style="margin: 6px 0 0; font-size: 13.5px; line-height: 1.5; color: rgba(42, 42, 46, 0.6);">Draft structure, to be refined with our technical advisors.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Program team" style="max-width: 1180px; margin: 0 auto; padding: 60px 32px 0;">
+      <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; padding-top: 52px; border-top: 1px solid rgba(141, 54, 27, 0.25);">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #3E637F; letter-spacing: -0.01em;">Our team</h2>
+        <div style="display: flex; flex-direction: column; gap: 26px;">
+          <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; max-width: 68ch; text-wrap: pretty;">The team pairs fertility control domain expertise with deep operational experience in conservation and scientific program management. Our technical advisors bring a combined 90 years of rodent management and fertility control experience.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <div style="flex: 1 1 260px; min-width: 0; background: #3E637F; border-radius: 14px; padding: 22px; display: flex; gap: 16px; align-items: flex-start;">
+              <img src="assets/mal-graham.png" alt="Mal Graham" style="width: 72px; height: 72px; object-fit: cover; border-radius: 4px; display: block; flex: none;" />
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <div style="font-size: 16px; color: #F1F4F3;">Dr. Mal Graham</div>
+                <div style="font-size: 13px; line-height: 1.5; color: #C6D3DB;">Program lead. A decade designing and launching novel scientific programs; former Executive Director of Wild Animal Initiative.</div>
+              </div>
+            </div>
+            <div style="flex: 1 1 260px; min-width: 0; background: #3E637F; border-radius: 14px; padding: 22px; display: flex; gap: 16px; align-items: flex-start;">
+              <img src="assets/nitin-sekar.png" alt="Nitin Sekar" style="width: 72px; height: 72px; object-fit: cover; border-radius: 4px; display: block; flex: none;" />
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <div style="font-size: 16px; color: #F1F4F3;">Dr. Nitin Sekar</div>
+                <div style="font-size: 13px; line-height: 1.5; color: #C6D3DB;">Co-lead. Director of Coexistence at Conservation X Labs; 18 years in conservation, development and multidisciplinary research.</div>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(42, 42, 46, 0.55);">Technical advisors</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px 32px;">
+              <div style="font-size: 15px; line-height: 1.55;"><span style="color: #3E637F; font-weight: 700;">Dr. Giovanna Massei</span> &mdash; lead technical advisor; Botstiber Institute for Wildlife Fertility Control &amp; University of York. 30 years in wildlife management, 20 on fertility control.</div>
+              <div style="font-size: 15px; line-height: 1.55;"><span style="color: #3E637F; font-weight: 700;">Dr. Steve Belmain</span> &mdash; NRI, University of Greenwich. Rodent ecology, agricultural pests and disease vectors; advocate of ecologically-based rodent management.</div>
+              <div style="font-size: 15px; line-height: 1.55;"><span style="color: #3E637F; font-weight: 700;">Dr. Jens Jacob</span> &mdash; Julius K&uuml;hn-Institut. Leads the Rodent Research Group; co-authored the 2024 framework on developing fertility control for rodents.</div>
+              <div style="font-size: 15px; line-height: 1.55;"><span style="color: #3E637F; font-weight: 700;">Gregg Howald</span> &mdash; Coastal Conservation. Invasive species eradication across 75 islands in eight countries; keeps outputs tied to island deployment realities.</div>
+              <div style="font-size: 15px; line-height: 1.55;"><span style="color: #3E637F; font-weight: 700;">Richard Parr MBE</span> &mdash; Center for Wild Animal Welfare. Former UK government adviser; policy and regulatory approval pathways.</div>
+              <div style="font-size: 15px; line-height: 1.55;"><span style="color: #3E637F; font-weight: 700;">Dr. Amanda Matthes</span> &mdash; Amodo Design. Connects pharmacological teams with delivery engineers on formulation&ndash;delivery integration.</div>
+              <div style="font-size: 15px; line-height: 1.55;"><span style="color: #3E637F; font-weight: 700;">Dr. Kevin Esvelt</span> &mdash; MIT Media Lab. Biosecurity review, particularly for any transmissible or self-disseminating vectors.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Broader impacts" style="max-width: 1180px; margin: 0 auto; padding: 60px 32px 0;">
+      <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; padding-top: 52px; border-top: 1px solid rgba(141, 54, 27, 0.25);">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #3E637F; letter-spacing: -0.01em;">Broader impacts</h2>
+        <div style="display: flex; flex-direction: column; gap: 18px; max-width: 68ch;">
+          <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">As habitat is replaced by human-modified landscapes, people and animals are increasingly in conflict over space and food, while attitudes turn against lethal management &mdash; which is neither always effective nor usable everywhere. A robust fertility control research community is infrastructure we will need regardless.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">Advances in vaccine delivery should translate into wildlife health more broadly, with implications for human health. Where a human vaccine is impossible or too expensive, vaccinating animals can be the most tractable path &mdash; oral rabies vaccination is the proof of concept, and similar approaches are being explored for Lyme disease, leptospirosis and bovine tuberculosis.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">The program also builds durable scientific infrastructure. Matchmaking and multi-year collaboration create lasting links between reproductive biology, vaccine engineering, wildlife ecology and delivery chemistry &mdash; communities that currently operate in isolation. Even compounds that fail our criteria may leave behind tools, methods and trained researchers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Program contact" style="max-width: 1180px; margin: 0 auto; padding: 60px 32px 96px;">
+      <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; padding-top: 52px; border-top: 1px solid rgba(141, 54, 27, 0.25);">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #3E637F; letter-spacing: -0.01em;">Get involved</h2>
+        <div style="background: #3E637F; border-radius: 16px; padding: 32px; max-width: 760px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 26px; color: #F1F4F3; line-height: 1.2;">The program is designed and ready to launch, pending funding.</div>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.6; color: #C6D3DB; max-width: 56ch;">If you&rsquo;re a funder considering this program, or a scientist who could contribute to one of the paired teams, we&rsquo;d like to hear from you.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center; padding-top: 4px;">
+            <a href="mailto:mal.graham@renphil.org" style="background: #F8F7F1; color: #3E637F; border-radius: 8px; padding: 12px 22px; font-size: 14.5px; text-decoration: none;" style-hover="background: #FFFFFF; color: #33546C;">Email Mal Graham</a>
+            <a href="Join-us.dc.html" style="color: #F1F4F3; font-size: 14.5px; text-decoration: underline; text-underline-offset: 3px;" style-hover="color: #FFFFFF;">Scientists: tell us about your work</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="border-top: 1px solid #8D361B;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 30px 32px 44px; display: grid; grid-template-columns: auto auto auto minmax(0, 1fr); gap: 56px; align-items: start;">
+      <a href="https://www.renaissancephilanthropy.org/" target="_blank" rel="noopener" style="display: block;">
+        <img src="assets/rp-logo.png" alt="Renaissance Philanthropy" style="width: 156px; height: auto; display: block;" />
+      </a>
+      <div style="display: flex; flex-direction: column; gap: 5px; font-size: 14px; line-height: 1.5; padding-top: 6px;">
+        <a href="https://www.renaissancephilanthropy.org/our-thesis" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">About</a>
+        <a href="https://www.renaissancephilanthropy.org/funds" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">Other Funds</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 5px; font-size: 14px; line-height: 1.5; padding-top: 6px;">
+        <a href="https://www.renaissancephilanthropy.org/playbooks/" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">Playbooks</a>
+        <a href="https://www.renaissancephilanthropy.org/insights" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">News &amp; Insights</a>
+      </div>
+      <div style="font-size: 14px; color: #2A2A2E; padding-top: 6px; text-align: right;">&copy;2026 Wildlife Technology Fund</div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this.onScroll = () => {
+      const el = this.headerEl;
+      if (!el) return;
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      const on = y > 6;
+      el.style.background = on ? '#F3F1E8' : '#F8F7F1';
+      el.style.boxShadow = on ? '0 10px 22px -20px rgba(42, 42, 46, 0.55)' : 'none';
+      el.style.borderBottomColor = on ? 'rgba(141, 54, 27, 0.55)' : 'rgba(141, 54, 27, 0.22)';
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+
+  componentWillUnmount() {
+    if (this.onScroll) window.removeEventListener('scroll', this.onScroll);
+  }
+
+  renderVals() {
+    return { headerRef: el => { this.headerEl = el; if (this.onScroll) this.onScroll(); } };
+  }
+}
+</script>
+</body>
+</html>

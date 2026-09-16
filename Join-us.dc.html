@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #F8F7F1; }
+  body { -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #3E637F; text-decoration-color: rgba(62, 99, 127, 0.45); text-underline-offset: 3px; }
+  a:hover { color: #8D361B; text-decoration-color: #8D361B; }
+  input, textarea, select, button { font: inherit; color: inherit; }
+  input::placeholder, textarea::placeholder { color: rgba(42, 42, 46, 0.38); }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: #3E637F; box-shadow: 0 0 0 3px rgba(62, 99, 127, 0.12); }
+</style>
+</helmet>
+<div style="background: #F8F7F1; color: #2A2A2E; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; min-height: 100vh; display: flex; flex-direction: column;">
+
+  <header ref="{{ headerRef }}" style="position: sticky; top: 0; z-index: 20; background: #F8F7F1; border-bottom: 1px solid rgba(141, 54, 27, 0.22); transition: background 180ms ease, box-shadow 180ms ease;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: end; border-bottom: 1px solid #8D361B; padding-bottom: 10px;">
+        <a href="Wildlife%20Technology%20Fund.dc.html" style="font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 400; color: #5E7D93; letter-spacing: 0.005em; padding-top: 26px; white-space: nowrap; text-decoration: none;">Wildlife Technology Fund</a>
+        <div style="display: flex; align-items: center; gap: 26px; border-top: 1px solid #8D361B; padding-top: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="assets/rp-icon.png" alt="Renaissance Philanthropy" style="width: 26px; height: 32px; object-fit: contain; display: block;" />
+            <a href="https://www.renaissancephilanthropy.org/" target="_blank" rel="noopener" style="font-size: 12.5px; line-height: 1.45; color: #2A2A2E; text-decoration: none;" style-hover="color: #8D361B;">
+              <div>A program of</div>
+              <div style="font-weight: 700;">Renaissance Philanthropy</div>
+            </a>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 3px; font-size: 12.5px; line-height: 1.45;">
+            <a href="https://www.renaissancephilanthropy.org/what-we-do/" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">&#8599; Explore other programs</a>
+            <a href="https://www.renaissancephilanthropy.org/our-thesis" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">&#8599; Learn more</a>
+          </div>
+        </div>
+      </div>
+      <nav style="display: flex; gap: 34px; padding: 13px 0 14px; font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 400; color: #3E637F;">
+        <a href="About.dc.html" style="text-decoration: none;">About</a>
+        <a href="Current-programs.dc.html" style="text-decoration: none;">Current programs</a>
+        <a href="Join-us.dc.html" style="text-decoration: none; color: #8D361B;">Join us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main data-screen-label="Join us form" style="flex: 1; max-width: 1180px; width: 100%; margin: 0 auto; padding: 66px 32px 96px;">
+    <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px;">
+      <h1 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 34px; font-weight: 700; line-height: 1.1; color: #3E637F;">Join us</h1>
+
+      <div style="max-width: 720px;">
+        <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-direction: column; gap: 34px;">
+            <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; max-width: 62ch; text-wrap: pretty;"><strong>Funders:</strong> if you&rsquo;re interested in supporting a program, please email Mal Graham directly at <a href="mailto:mal.graham@renphil.org">mal.graham@renphil.org</a> &mdash; no need to use the form.</p>
+            <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; max-width: 62ch; text-wrap: pretty;">If you&rsquo;re a scientist with an interest in one of our program areas, tell us a little about yourself. We read every submission and will reach out when a program area lines up with your expertise.</p>
+
+            <form onSubmit="{{ submit }}" style="display: flex; flex-direction: column; gap: 22px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px;">
+                <label style="display: flex; flex-direction: column; gap: 7px;">
+                  <span style="font-size: 13.5px; font-weight: 700; color: #3E637F; letter-spacing: 0.01em;">Name</span>
+                  <input name="name" type="text" required="required" autoComplete="name" placeholder="First and last name" style="width: 100%; background: #FFFDF7; border: 1px solid rgba(62, 99, 127, 0.38); border-radius: 6px; padding: 11px 13px; font-size: 15px; transition: border-color 140ms ease, box-shadow 140ms ease;" />
+                </label>
+                <label style="display: flex; flex-direction: column; gap: 7px;">
+                  <span style="font-size: 13.5px; font-weight: 700; color: #3E637F; letter-spacing: 0.01em;">Institution</span>
+                  <input name="institution" type="text" required="required" autoComplete="organization" placeholder="University, lab, company or NGO" style="width: 100%; background: #FFFDF7; border: 1px solid rgba(62, 99, 127, 0.38); border-radius: 6px; padding: 11px 13px; font-size: 15px; transition: border-color 140ms ease, box-shadow 140ms ease;" />
+                </label>
+                <label style="display: flex; flex-direction: column; gap: 7px;">
+                  <span style="font-size: 13.5px; font-weight: 700; color: #3E637F; letter-spacing: 0.01em;">Email address</span>
+                  <input name="email" type="email" required="required" autoComplete="email" placeholder="you@institution.org" style="width: 100%; background: #FFFDF7; border: 1px solid rgba(62, 99, 127, 0.38); border-radius: 6px; padding: 11px 13px; font-size: 15px; transition: border-color 140ms ease, box-shadow 140ms ease;" />
+                </label>
+                <label style="display: flex; flex-direction: column; gap: 7px;">
+                  <span style="font-size: 13.5px; font-weight: 700; color: #3E637F; letter-spacing: 0.01em;">Area of expertise</span>
+                  <input name="expertise" type="text" required="required" placeholder="e.g. reproductive endocrinology" style="width: 100%; background: #FFFDF7; border: 1px solid rgba(62, 99, 127, 0.38); border-radius: 6px; padding: 11px 13px; font-size: 15px; transition: border-color 140ms ease, box-shadow 140ms ease;" />
+                </label>
+              </div>
+
+              <label style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 13.5px; font-weight: 700; color: #3E637F; letter-spacing: 0.01em;">LinkedIn <span style="font-weight: 400; color: rgba(42, 42, 46, 0.55);">&mdash; optional</span></span>
+                <input name="linkedin" type="url" placeholder="https://www.linkedin.com/in/&hellip;" style="width: 100%; background: #FFFDF7; border: 1px solid rgba(62, 99, 127, 0.38); border-radius: 6px; padding: 11px 13px; font-size: 15px; transition: border-color 140ms ease, box-shadow 140ms ease;" />
+              </label>
+
+              <label style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 13.5px; font-weight: 700; color: #3E637F; letter-spacing: 0.01em;">Tell us about your interest</span>
+                <textarea name="interest" required="required" rows="7" placeholder="Which program area interests you, and what would you want to work on?" style="width: 100%; background: #FFFDF7; border: 1px solid rgba(62, 99, 127, 0.38); border-radius: 6px; padding: 12px 13px; font-size: 15px; line-height: 1.55; resize: vertical; min-height: 150px; transition: border-color 140ms ease, box-shadow 140ms ease;"></textarea>
+              </label>
+
+              <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; padding-top: 4px;">
+                <button type="submit" style="background: #3E637F; color: #F8F7F1; border: none; border-radius: 8px; padding: 13px 28px; font-size: 15px; letter-spacing: 0.01em; cursor: pointer; transition: background 150ms ease;" style-hover="background: #33546C;">Send</button>
+                <div style="font-size: 13.5px; line-height: 1.5; color: rgba(42, 42, 46, 0.7);">Or email us directly at <a href="mailto:mal.graham@renphil.org">mal.graham@renphil.org</a></div>
+              </div>
+            </form>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; gap: 18px; background: #3E637F; border-radius: 14px; padding: 34px 32px;">
+            <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 26px; color: #F1F4F3;">Thank you{{ greetingName }}</div>
+            <p style="margin: 0; font-size: 15.5px; line-height: 1.6; color: #C6D3DB; max-width: 48ch;">Your note is with the Wildlife Technology Fund team. We&rsquo;ll be in touch when one of our program areas lines up with your expertise.</p>
+            <div style="display: flex; gap: 22px; align-items: center; flex-wrap: wrap; padding-top: 4px;">
+              <a href="Wildlife%20Technology%20Fund.dc.html" style="background: #F8F7F1; color: #3E637F; border-radius: 8px; padding: 11px 22px; font-size: 14.5px; text-decoration: none;" style-hover="background: #FFFFFF; color: #33546C;">Back to the fund</a>
+              <button onClick="{{ reset }}" style="background: none; border: none; color: #C6D3DB; font-size: 14px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; padding: 0;" style-hover="color: #F1F4F3;">Submit another response</button>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </main>
+
+  <footer style="border-top: 1px solid #8D361B;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 30px 32px 44px; display: grid; grid-template-columns: auto auto auto minmax(0, 1fr); gap: 56px; align-items: start;">
+      <a href="https://www.renaissancephilanthropy.org/" target="_blank" rel="noopener" style="display: block;">
+        <img src="assets/rp-logo.png" alt="Renaissance Philanthropy" style="width: 156px; height: auto; display: block;" />
+      </a>
+      <div style="display: flex; flex-direction: column; gap: 5px; font-size: 14px; line-height: 1.5; padding-top: 6px;">
+        <a href="https://www.renaissancephilanthropy.org/our-thesis" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">About</a>
+        <a href="https://www.renaissancephilanthropy.org/funds" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">Other Funds</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 5px; font-size: 14px; line-height: 1.5; padding-top: 6px;">
+        <a href="https://www.renaissancephilanthropy.org/playbooks/" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">Playbooks</a>
+        <a href="https://www.renaissancephilanthropy.org/insights" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">News &amp; Insights</a>
+      </div>
+      <div style="font-size: 14px; color: #2A2A2E; padding-top: 6px; text-align: right;">&copy;2026 Wildlife Technology Fund</div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { sent: false, name: '' };
+
+  componentDidMount() {
+    this.onScroll = () => {
+      const el = this.headerEl;
+      if (!el) return;
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      const on = y > 6;
+      el.style.background = on ? '#F3F1E8' : '#F8F7F1';
+      el.style.boxShadow = on ? '0 10px 22px -20px rgba(42, 42, 46, 0.55)' : 'none';
+      el.style.borderBottomColor = on ? 'rgba(141, 54, 27, 0.55)' : 'rgba(141, 54, 27, 0.22)';
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+
+  componentWillUnmount() {
+    if (this.onScroll) window.removeEventListener('scroll', this.onScroll);
+  }
+
+  renderVals() {
+    const first = (this.state.name || '').trim().split(/\s+/)[0] || '';
+    return {
+      showForm: !this.state.sent,
+      submitted: this.state.sent,
+      greetingName: first ? ', ' + first : '',
+      headerRef: el => { this.headerEl = el; if (this.onScroll) this.onScroll(); },
+      submit: e => {
+        e.preventDefault();
+        const data = new FormData(e.target);
+        this.setState({ sent: true, name: data.get('name') || '' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+      reset: () => this.setState({ sent: false, name: '' })
+    };
+  }
+}
+</script>
+</body>
+</html>

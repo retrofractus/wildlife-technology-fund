@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #F8F7F1; }
+  body { -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #3E637F; text-decoration-color: rgba(62, 99, 127, 0.45); text-underline-offset: 3px; }
+  a:hover { color: #8D361B; text-decoration-color: #8D361B; }
+</style>
+</helmet>
+<div style="background: #F8F7F1; color: #2A2A2E; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; min-height: 100vh; display: flex; flex-direction: column;">
+
+  <header ref="{{ headerRef }}" style="position: sticky; top: 0; z-index: 20; background: #F8F7F1; border-bottom: 1px solid rgba(141, 54, 27, 0.22); transition: background 180ms ease, box-shadow 180ms ease;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: end; border-bottom: 1px solid #8D361B; padding-bottom: 10px;">
+        <a href="Wildlife%20Technology%20Fund.dc.html" style="font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 400; color: #5E7D93; letter-spacing: 0.005em; padding-top: 26px; white-space: nowrap; text-decoration: none;">Wildlife Technology Fund</a>
+        <div style="display: flex; align-items: center; gap: 26px; border-top: 1px solid #8D361B; padding-top: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="assets/rp-icon.png" alt="Renaissance Philanthropy" style="width: 26px; height: 32px; object-fit: contain; display: block;" />
+            <a href="https://www.renaissancephilanthropy.org/" target="_blank" rel="noopener" style="font-size: 12.5px; line-height: 1.45; color: #2A2A2E; text-decoration: none;" style-hover="color: #8D361B;">
+              <div>A program of</div>
+              <div style="font-weight: 700;">Renaissance Philanthropy</div>
+            </a>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 3px; font-size: 12.5px; line-height: 1.45;">
+            <a href="https://www.renaissancephilanthropy.org/what-we-do/" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">&#8599; Explore other programs</a>
+            <a href="https://www.renaissancephilanthropy.org/our-thesis" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">&#8599; Learn more</a>
+          </div>
+        </div>
+      </div>
+      <nav style="display: flex; gap: 34px; padding: 13px 0 14px; font-family: 'Playfair Display', Georgia, serif; font-size: 17px; font-weight: 400; color: #3E637F;">
+        <a href="About.dc.html" style="text-decoration: none;">About</a>
+        <a href="Current-programs.dc.html" style="text-decoration: none; color: #8D361B;">Current programs</a>
+        <a href="Join-us.dc.html" style="text-decoration: none;">Join us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="flex: 1;">
+    <section data-screen-label="Programs intro" style="max-width: 1180px; margin: 0 auto; padding: 66px 32px 0;">
+      <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px;">
+        <h1 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 34px; font-weight: 700; line-height: 1.1; color: #3E637F;">Current programs</h1>
+        <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #2A2A2E; max-width: 58ch; text-wrap: pretty;">We work in three modes: scoping candidate areas against our standards for impact, running coordinated research programs on the ones that pass, and building the pipeline of people who can run them.</p>
+      </div>
+    </section>
+
+    <section data-screen-label="How we work" style="max-width: 1180px; margin: 0 auto; padding: 60px 32px 0;">
+      <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; padding-top: 52px; border-top: 1px solid rgba(141, 54, 27, 0.25);">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #3E637F; letter-spacing: -0.01em;">How we work</h2>
+        <div style="display: flex; flex-direction: column; gap: 30px;">
+          <div style="display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px 12px; max-width: 68ch;">
+            <div style="font-size: 17px; line-height: 1.6; color: #8D361B;">1.</div>
+            <h3 style="margin: 0; font-size: 17px; line-height: 1.6; font-weight: 700; color: #3E637F;">We scope</h3>
+            <div></div>
+            <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">Scoping is where most of our work happens. We take a candidate area &mdash; a bottleneck, a stalled field, an intervention nobody has carried past the lab &mdash; and test it against our standards for impact: how many animals it touches, whether a coordinated push would actually move it, who would use the result, and what it would cost to find out. Most candidates do not survive this stage, and that is the point.</p>
+          </div>
+          <div style="display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px 12px; max-width: 68ch;">
+            <div style="font-size: 17px; line-height: 1.6; color: #8D361B;">2.</div>
+            <h3 style="margin: 0; font-size: 17px; line-height: 1.6; font-weight: 700; color: #3E637F;">We run coordinated research programs</h3>
+            <div></div>
+            <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">Areas that pass scoping become coordinated research programs: time-bound, milestone-driven, and run by a program manager with a budget and the authority to reallocate it. We borrow the tools of the innovation landscape &mdash; ARPA-style program design, milestone payments, focused research organizations &mdash; and apply them to problems that academic funding and commercial investment both leave stranded.</p>
+          </div>
+          <div style="display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 8px 12px; max-width: 68ch;">
+            <div style="font-size: 17px; line-height: 1.6; color: #8D361B;">3.</div>
+            <h3 style="margin: 0; font-size: 17px; line-height: 1.6; font-weight: 700; color: #3E637F;">We develop program managers</h3>
+            <div></div>
+            <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">The binding constraint on this model is people who can run a program well. We are setting up a route for scientists to learn program design and management in practice. <span style="color: #8D361B;">More here soon</span> &mdash; we are finishing negotiations with a partner team on how this will be run.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Approved programs" style="max-width: 1180px; margin: 0 auto; padding: 60px 32px 0;">
+      <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; padding-top: 52px; border-top: 1px solid rgba(141, 54, 27, 0.25);">
+        <div>
+          <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #3E637F; letter-spacing: -0.01em;">Approved programs</h2>
+          <p style="margin: 10px 0 0; font-size: 13.5px; line-height: 1.5; color: rgba(42, 42, 46, 0.65);">Through scoping and into design. Ready to launch pending additional funding.</p>
+        </div>
+        <a href="Rodenticide-replacement.dc.html" style="display: block; text-decoration: none; background: #3E637F; border-radius: 16px; padding: 30px 32px; max-width: 760px; transition: background 160ms ease, transform 160ms ease;" style-hover="background: #33546C; transform: translateY(-2px);">
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+            <span style="font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #F8F7F1; background: rgba(248, 247, 241, 0.16); border-radius: 999px; padding: 5px 11px;">In design</span>
+            <span style="font-size: 12.5px; color: #C6D3DB;">Five years &middot; $30M &middot; Seeking funding</span>
+          </div>
+          <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; color: #F1F4F3; line-height: 1.15; padding-top: 16px;">Rodenticide Replacement Program</div>
+          <p style="margin: 12px 0 0; font-size: 15.5px; line-height: 1.58; color: #C6D3DB; max-width: 56ch;">A coordinated research program to make rodent fertility control work at landscape scale &mdash; pairing contraceptive cargo with delivery that can actually reach five of the world&rsquo;s most damaging rodent species.</p>
+          <div style="font-size: 14px; color: #F1F4F3; padding-top: 20px;">Read the program brief &rarr;</div>
+        </a>
+      </div>
+    </section>
+
+    <section data-screen-label="Programs in scoping" style="max-width: 1180px; margin: 0 auto; padding: 60px 32px 96px;">
+      <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; padding-top: 52px; border-top: 1px solid rgba(141, 54, 27, 0.25);">
+        <div>
+          <h2 style="margin: 0; font-size: 20px; font-weight: 700; color: #3E637F; letter-spacing: -0.01em;">Programs in scoping</h2>
+          <p style="margin: 10px 0 0; font-size: 13.5px; line-height: 1.5; color: rgba(42, 42, 46, 0.65);">Being tested against our standards for impact.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 26px; max-width: 68ch;">
+          <div style="display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 6px 10px;">
+            <div style="font-size: 17px; line-height: 1.62; color: #8D361B;">1.</div>
+            <h3 style="margin: 0; font-size: 17px; line-height: 1.62; font-weight: 700; color: #3E637F;">Rodent fertility control</h3>
+            <div></div>
+            <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">Addressing the limitations of existing rodent control products by developing a solution that is safe for people as well as the environment, humane for rodents and other wildlife, and actually works against the forces of compensatory mortality and immigration. <a href="Rodenticide-replacement.dc.html">Now in design as the Rodenticide Replacement Program &rarr;</a></p>
+          </div>
+          <div style="display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 6px 10px;">
+            <div style="font-size: 17px; line-height: 1.62; color: #8D361B;">2.</div>
+            <h3 style="margin: 0; font-size: 17px; line-height: 1.62; font-weight: 700; color: #3E637F;">Welfare indicator development</h3>
+            <div></div>
+            <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">Extending the feasibility of animal welfare assessment in the wild by developing three to five indicators that work across a large taxonomic category (e.g., all mammals), can be deployed in the field at reasonable cost, and integrate welfare over a meaningful portion of an animal's lifespan (e.g., at least 10%).</p>
+          </div>
+          <div style="display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 6px 10px;">
+            <div style="font-size: 17px; line-height: 1.62; color: #8D361B;">3.</div>
+            <h3 style="margin: 0; font-size: 17px; line-height: 1.62; font-weight: 700; color: #3E637F;">The ecology of bird-window collisions</h3>
+            <div></div>
+            <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">Understanding the ecological and welfare costs of bird-window collisions, an understudied phenomenon affecting somewhere between hundreds of millions and billions of birds per year in the US alone.</p>
+          </div>
+          <div style="display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 6px 10px;">
+            <div style="font-size: 17px; line-height: 1.62; color: #8D361B;">4.</div>
+            <h3 style="margin: 0; font-size: 17px; line-height: 1.62; font-weight: 700; color: #3E637F;">Wildlife vaccination</h3>
+            <div></div>
+            <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">Identifying and developing treatment for a disease that affects vast numbers of wild animals, but is ecologically safe to eliminate.</p>
+          </div>
+          <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">We&rsquo;re also exploring several other areas as candidates for scoping, including vulture conservation, improving near-term ecological forecasting, better estimating invertebrate populations, and reducing reliance on managed pollinators.</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.62; color: #2A2A2E; text-wrap: pretty;">If you&rsquo;re a scientist with an interest in one of these areas, <a href="Join-us.dc.html">tell us about your work</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="border-top: 1px solid #8D361B;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 30px 32px 44px; display: grid; grid-template-columns: auto auto auto minmax(0, 1fr); gap: 56px; align-items: start;">
+      <a href="https://www.renaissancephilanthropy.org/" target="_blank" rel="noopener" style="display: block;">
+        <img src="assets/rp-logo.png" alt="Renaissance Philanthropy" style="width: 156px; height: auto; display: block;" />
+      </a>
+      <div style="display: flex; flex-direction: column; gap: 5px; font-size: 14px; line-height: 1.5; padding-top: 6px;">
+        <a href="https://www.renaissancephilanthropy.org/our-thesis" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">About</a>
+        <a href="https://www.renaissancephilanthropy.org/funds" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">Other Funds</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 5px; font-size: 14px; line-height: 1.5; padding-top: 6px;">
+        <a href="https://www.renaissancephilanthropy.org/playbooks/" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">Playbooks</a>
+        <a href="https://www.renaissancephilanthropy.org/insights" target="_blank" rel="noopener" style="text-decoration: none; color: #2A2A2E;" style-hover="color: #8D361B;">News &amp; Insights</a>
+      </div>
+      <div style="font-size: 14px; color: #2A2A2E; padding-top: 6px; text-align: right;">&copy;2026 Wildlife Technology Fund</div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this.onScroll = () => {
+      const el = this.headerEl;
+      if (!el) return;
+      const y = window.scrollY || document.documentElement.scrollTop || 0;
+      const on = y > 6;
+      el.style.background = on ? '#F3F1E8' : '#F8F7F1';
+      el.style.boxShadow = on ? '0 10px 22px -20px rgba(42, 42, 46, 0.55)' : 'none';
+      el.style.borderBottomColor = on ? 'rgba(141, 54, 27, 0.55)' : 'rgba(141, 54, 27, 0.22)';
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+
+  componentWillUnmount() {
+    if (this.onScroll) window.removeEventListener('scroll', this.onScroll);
+  }
+
+  renderVals() {
+    return { headerRef: el => { this.headerEl = el; if (this.onScroll) this.onScroll(); } };
+  }
+}
+</script>
+</body>
+</html>

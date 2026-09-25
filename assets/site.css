@@ -32,7 +32,7 @@
 
   /* Light surfaces. --bg matches the hero artwork's own background exactly, so
      the capped hero frame blends into the page with no visible seam. */
-  --bg: #F3F5F6;
+  --bg: #F7fAF8;
   --bg-raised: #E7EDEA;          /* header once scrolled, table headings */
   --panel: #FFFFFF;
 

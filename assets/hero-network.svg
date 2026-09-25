@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMin slice">
+  <!-- Decorative hero network for the homepage. Lines, relay dots and glowing
+       icon nodes; the grid behind it is drawn in CSS on .hero. -->
+  <style>
+    .link  { fill: none; stroke: #EF8354; stroke-width: 2; stroke-dasharray: 9 9; stroke-linecap: round; opacity: 0.85; animation: flow 3.2s linear infinite; }
+    .relay { fill: #FFFFFF; stroke: #EB7440; stroke-width: 2.5; }
+    .halo  { fill: #F4935F; opacity: 0.3; filter: url(#glow); animation: pulse 4.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    .node  { fill: #F8B99A; stroke: #F29A72; stroke-width: 6; }
+    .inner { fill: none; stroke: #FFFFFF; stroke-opacity: 0.55; stroke-width: 1.5; }
+    .icon  { fill: #FFFFFF; }
+    .icon-line { fill: none; stroke: #FFFFFF; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .d1 { animation-delay: -0.8s; } .d2 { animation-delay: -1.6s; } .d3 { animation-delay: -2.4s; }
+    .d4 { animation-delay: -3.2s; } .d5 { animation-delay: -4.0s; }
+    @keyframes flow  { to { stroke-dashoffset: -36; } }
+    @keyframes pulse { 0%, 100% { opacity: 0.22; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.08); } }
+    @media (prefers-reduced-motion: reduce) { .link, .halo { animation: none; } }
+  </style>
+  <defs>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="12" />
+    </filter>
+  </defs>
+
+  <!-- Links -->
+  <path class="link" d="M0 300 L190 205" />
+  <path class="link" d="M190 205 L70 560" />
+  <path class="link" d="M190 205 L430 150" />
+  <path class="link" d="M430 150 L520 0" />
+  <path class="link" d="M430 150 L760 300" />
+  <path class="link" d="M760 300 L1010 170" />
+  <path class="link" d="M1010 170 L1080 0" />
+  <path class="link" d="M1010 170 L1250 230" />
+  <path class="link" d="M1250 230 L1440 110" />
+  <path class="link" d="M1250 230 L1310 560" />
+  <path class="link" d="M760 300 L1310 560" />
+  <path class="link" d="M1310 560 L1440 680" />
+
+  <!-- Relay dots along the links -->
+  <circle class="relay" cx="310" cy="178" r="8" />
+  <circle class="relay" cx="595" cy="225" r="8" />
+  <circle class="relay" cx="885" cy="235" r="8" />
+  <circle class="relay" cx="1130" cy="200" r="8" />
+  <circle class="relay" cx="1036" cy="430" r="8" />
+  <circle class="relay" cx="1282" cy="408" r="8" />
+  <circle class="relay" cx="130" cy="382" r="8" />
+
+  <!-- Laptop -->
+  <g transform="translate(190 205)">
+    <circle class="halo" r="62" />
+    <circle class="node" r="44" /><circle class="inner" r="36" />
+    <rect class="icon" x="-16" y="-15" width="32" height="22" rx="2.5" />
+    <rect x="-12.5" y="-11.5" width="25" height="15" fill="#F8B99A" />
+    <path class="icon" d="M-22 10 H22 L18.5 15 H-18.5 Z" />
+  </g>
+
+  <!-- Bird -->
+  <g transform="translate(430 150)">
+    <circle class="halo d1" r="58" />
+    <circle class="node" r="40" /><circle class="inner" r="32" />
+    <ellipse class="icon" cx="2" cy="3" rx="13" ry="9" transform="rotate(-24 2 3)" />
+    <circle class="icon" cx="-9" cy="-8" r="6.5" />
+    <path class="icon" d="M-15 -10 L-22 -7 L-15 -5 Z" />
+    <path class="icon" d="M10 5 L23 15 L20 3 Z" />
+    <path class="icon-line" style="stroke-width:2" d="M-1 11 L-3 18 M4 11 L4 18" />
+  </g>
+
+  <!-- Hub: radio tower -->
+  <g transform="translate(760 300)">
+    <circle class="halo d2" r="86" />
+    <circle class="node" r="62" style="stroke-width:7" /><circle class="inner" r="52" />
+    <path class="icon-line" d="M0 -10 L-13 28 M0 -10 L13 28 M-7 10 H7 M-10 20 H10" />
+    <circle class="icon" cx="0" cy="-14" r="5.5" />
+    <path class="icon-line" d="M-10 -24 A14 14 0 0 0 -10 -4 M10 -24 A14 14 0 0 1 10 -4" />
+    <path class="icon-line" d="M-18 -31 A24 24 0 0 0 -18 3 M18 -31 A24 24 0 0 1 18 3" />
+  </g>
+
+  <!-- Truck -->
+  <g transform="translate(1010 170)">
+    <circle class="halo d3" r="62" />
+    <circle class="node" r="44" /><circle class="inner" r="36" />
+    <rect class="icon" x="-23" y="-13" width="27" height="20" rx="2" />
+    <path class="icon" d="M6 -6 H14 L22 2 V9 H6 Z" />
+    <circle class="icon" cx="-13" cy="11" r="5" stroke="#F8B99A" stroke-width="2" />
+    <circle class="icon" cx="14" cy="11" r="5" stroke="#F8B99A" stroke-width="2" />
+  </g>
+
+  <!-- Deer -->
+  <g transform="translate(1250 230)">
+    <circle class="halo d4" r="70" />
+    <circle class="node" r="52" /><circle class="inner" r="43" />
+    <rect class="icon" x="-17" y="-2" width="30" height="13" rx="6.5" />
+    <rect class="icon" x="-15" y="8" width="4" height="17" rx="1.5" />
+    <rect class="icon" x="-8" y="8" width="4" height="17" rx="1.5" />
+    <rect class="icon" x="4" y="8" width="4" height="17" rx="1.5" />
+    <rect class="icon" x="9.5" y="8" width="4" height="17" rx="1.5" />
+    <path class="icon" d="M5 2 L13 2 L18 -13 L11 -14 Z" />
+    <ellipse class="icon" cx="17" cy="-15" rx="6.5" ry="4.5" transform="rotate(12 17 -15)" />
+    <path class="icon" d="M-17 0 L-21 -4 L-15 -2 Z" />
+    <path class="icon-line" style="stroke-width:2.4" d="M13 -18 L9 -32 M11 -25 L4 -29 M20 -18 L25 -32 M23 -25 L30 -28" />
+  </g>
+
+  <!-- Paw -->
+  <g transform="translate(1310 560)">
+    <circle class="halo d5" r="62" />
+    <circle class="node" r="44" /><circle class="inner" r="36" />
+    <ellipse class="icon" cx="0" cy="8" rx="11" ry="9" />
+    <ellipse class="icon" cx="-13" cy="-4" rx="4.5" ry="6" transform="rotate(-22 -13 -4)" />
+    <ellipse class="icon" cx="-5" cy="-12" rx="4.5" ry="6" transform="rotate(-6 -5 -12)" />
+    <ellipse class="icon" cx="5" cy="-12" rx="4.5" ry="6" transform="rotate(6 5 -12)" />
+    <ellipse class="icon" cx="13" cy="-4" rx="4.5" ry="6" transform="rotate(22 13 -4)" />
+  </g>
+</svg>

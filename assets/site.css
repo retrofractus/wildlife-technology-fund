@@ -12,47 +12,51 @@
 
 :root {
   /* Type.
-     The logo is set in Plain Medium (licensed, not web-loaded). Cormorant
-     Garamond carries display type — a Garamond with enough contrast to sit
-     beside a geometric sans without competing with it. Inter carries body and
-     UI copy; it is the closest widely-available relative of Plain, so running
-     text reads as a continuation of the logo. Both are on the Renaissance
-     Philanthropy font list. */
-  --font-display: 'Cormorant Garamond', 'Cormorant', Garamond, 'Times New Roman', serif;
+     The logo is set in Plain Medium (licensed, not web-loaded). Instrument
+     Sans carries headings and navigation; Inter carries body and UI copy. */
+  --font-display: 'Instrument Sans', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-  /* Brand green, sampled from the logo lockup. */
-  --accent: #00CE80;
-  --accent-strong: #00A868;      /* pressed / hover fill */
-  --accent-ink: #006B41;         /* green that is legible as text on --bg (6.3:1) */
-  --accent-line: rgba(0, 206, 128, 0.45);
-  --accent-hairline: rgba(0, 206, 128, 0.30);
-  --accent-faint: rgba(0, 206, 128, 0.14);
-  --on-accent: #052A1B;          /* text sitting on an --accent fill */
+  /* Brand green. */
+  --accent: #34B77B;
+  --accent-strong: #2A9A66;      /* pressed / hover fill */
+  --accent-ink: #1C6E48;         /* green that is legible as text on --bg */
+  --accent-line: rgba(52, 183, 123, 0.45);
+  --accent-hairline: rgba(52, 183, 123, 0.30);
+  --accent-faint: rgba(52, 183, 123, 0.14);
+  --on-accent: #2D3142;          /* text sitting on an --accent fill (5:1) */
 
-  /* Light surfaces. --bg matches the hero artwork's own background exactly, so
-     the capped hero frame blends into the page with no visible seam. */
-  --bg: #F7fAF8;
-  --bg-raised: #E7EDEA;          /* header once scrolled, table headings */
+  /* Complementary coral, used by the hero network (assets/hero-network.svg
+     carries its own copies of these values). */
+  --coral: #EF8354;
+
+  /* Hero network / grid. */
+  --grid-line: rgba(79, 93, 117, 0.08);
+  --grid-size: 44px;
+
+  /* Light surfaces. */
+  --bg: #FFFFFF;
+  --bg-raised: #F4F5F8;          /* header once scrolled, table headings */
   --panel: #FFFFFF;
 
-  /* Dark surfaces. */
-  --surface: #12251E;
-  --surface-2: #0A1913;
-  --on-surface: #E6F1EB;
-  --on-surface-muted: #A3BDB1;
-  --on-surface-faint: rgba(230, 241, 235, 0.62);
+  /* Dark surfaces — jet black. */
+  --surface: #2D3142;
+  --surface-2: #232633;
+  --on-surface: #FFFFFF;
+  --on-surface-muted: #C3C8D4;
+  --on-surface-faint: rgba(255, 255, 255, 0.64);
 
-  /* Ink. */
-  --ink: #16211D;
-  --ink-muted: #4C5A55;
-  --ink-soft: rgba(22, 33, 29, 0.66);
-  --ink-faint: rgba(22, 33, 29, 0.55);
-  --heading: #0F2F24;
+  /* Ink — blue slate body, jet black headings. */
+  --ink: #4F5D75;
+  --ink-muted: #647189;
+  --ink-soft: rgba(79, 93, 117, 0.85);
+  --ink-faint: rgba(79, 93, 117, 0.7);
+  --heading: #2D3142;            /* strong ink: nav, links, labels */
+  --title: #2A9D69;              /* headings: deeper brand green, 3.4:1 on white (passes for large text) */
 
   /* Lines. */
-  --hairline: rgba(15, 47, 36, 0.16);
-  --hairline-strong: rgba(15, 47, 36, 0.30);
+  --hairline: rgba(45, 49, 66, 0.14);
+  --hairline-strong: rgba(45, 49, 66, 0.28);
 
   /* Metrics. */
   --wrap: 1180px;
@@ -60,7 +64,6 @@
   --col: 200px;                  /* the label column in the two-column rows */
   --col-gap: 40px;
   --header-h: 132px;             /* measured height of the sticky header */
-  --hero-ratio: 1.7878;          /* 1677 / 938, the hero artwork's aspect */
 }
 
 /* --------------------------------------------------------------------------
@@ -103,13 +106,12 @@ input, textarea, select, button { font: inherit; color: inherit; }
   border-radius: 3px;
 }
 
-/* Display type. Cormorant is drawn small on the body, so display sizes are
-   nudged up and tracked in slightly to hold weight against the sans. */
+/* Display type. */
 .display {
   font-family: var(--font-display);
   font-weight: 600;
-  letter-spacing: -0.005em;
-  color: var(--heading);
+  letter-spacing: -0.015em;
+  color: var(--title);
 }
 
 /* --------------------------------------------------------------------------
@@ -148,7 +150,7 @@ input, textarea, select, button { font: inherit; color: inherit; }
 /* Toggled from each page's scroll handler. */
 .site-header.is-scrolled {
   background: var(--bg-raised);
-  box-shadow: 0 10px 22px -20px rgba(10, 25, 19, 0.55);
+  box-shadow: 0 10px 22px -20px rgba(45, 49, 66, 0.55);
   border-bottom-color: var(--accent-line);
 }
 
@@ -218,9 +220,9 @@ input, textarea, select, button { font: inherit; color: inherit; }
   gap: 34px;
   padding: 13px 0 14px;
   font-family: var(--font-display);
-  font-size: 19px;
-  font-weight: 600;
-  letter-spacing: 0.005em;
+  font-size: 16.5px;
+  font-weight: 500;
+  letter-spacing: 0;
 }
 
 .site-nav a {
@@ -240,67 +242,76 @@ input, textarea, select, button { font: inherit; color: inherit; }
 /* --------------------------------------------------------------------------
    5. Hero
    --------------------------------------------------------------------------
-   The artwork is a fixed 1677x938. Left to `width: 100%`, it grew to ~810px
-   tall on a 1440px display and pushed its own bottom edge well past the fold.
-   The frame below caps the artwork's width to whatever keeps its full height
-   inside the viewport once the header is accounted for, so the bottom of the
-   hero lands at the fold on a normal laptop. Nothing is cropped — the frame
-   just letterboxes into --bg, which is the artwork's own background colour.
+   A faint grid (drawn here) under a glowing network illustration
+   (assets/hero-network.svg). The copy sits bottom-left, aligned to .wrap.
    -------------------------------------------------------------------------- */
 
 .hero {
-  background: var(--bg);
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.hero-frame {
   position: relative;
-  width: 100%;
-  max-width: min(1600px, calc((100svh - var(--header-h)) * var(--hero-ratio)));
-  aspect-ratio: 1677 / 938;
-  container-type: inline-size;
+  overflow: hidden;
+  background: var(--bg);
+  min-height: clamp(540px, calc(100svh - var(--header-h)), 800px);
+  display: flex;
+  align-items: flex-end;
 }
 
-.hero-img {
-  display: block;
+/* Grid lines, fading out towards the bottom so the hero melts into the page. */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  background-position: center top;
+  -webkit-mask-image: linear-gradient(to bottom, #000 65%, transparent);
+          mask-image: linear-gradient(to bottom, #000 65%, transparent);
+  pointer-events: none;
+}
+
+.hero-network {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  pointer-events: none;
 }
 
-.hero-copy {
-  position: absolute;
-  left: 4.5%;
-  top: 17%;
-  width: 38%;
+.hero-inner {
+  position: relative;
+  padding-bottom: clamp(48px, 8vh, 88px);
 }
+
+.hero-copy { max-width: 640px; }
 
 .hero-title {
   margin: 0;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: max(34px, 4.35cqw);
-  line-height: 1.02;
+  font-size: clamp(44px, 6.2vw, 88px);
+  line-height: 1;
+  max-width: 7.5em;              /* always breaks after "Wildlife" */
   color: var(--heading);
-  letter-spacing: -0.012em;
+  letter-spacing: -0.03em;
 }
 
 .hero-rule {
-  width: 4.4cqw;
-  min-width: 44px;
+  width: 64px;
   height: 2px;
   background: var(--accent);
-  margin: max(14px, 1.9cqw) 0 0;
+  margin: 26px 0 0;
 }
 
 .hero-sub {
-  margin: max(12px, 1.7cqw) 0 0;
-  font-size: max(14.5px, 1.42cqw);
+  margin: 20px 0 0;
+  font-size: clamp(16px, 1.45vw, 20px);
   line-height: 1.5;
   color: var(--ink);
-  max-width: 20em;
+  max-width: 24em;
   text-wrap: pretty;
 }
 
@@ -340,9 +351,10 @@ input, textarea, select, button { font: inherit; color: inherit; }
 
 .h2 {
   margin: 0;
+  font-family: var(--font-display);
   font-size: 20px;
   font-weight: 600;
-  color: var(--heading);
+  color: var(--title);
   letter-spacing: -0.01em;
 }
 
@@ -360,7 +372,7 @@ input, textarea, select, button { font: inherit; color: inherit; }
   font-weight: 600;
   line-height: 1.06;
   color: var(--heading);
-  letter-spacing: -0.012em;
+  letter-spacing: -0.02em;
 }
 
 .lede {
@@ -410,6 +422,14 @@ input, textarea, select, button { font: inherit; color: inherit; }
 .stack {
   display: flex;
   flex-direction: column;
+}
+
+/* A short lead-in phrase followed by a button ("For more, see [About]"). */
+.cta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 16px;
 }
 
 /* --------------------------------------------------------------------------
@@ -702,6 +722,11 @@ input, textarea, select, button { font: inherit; color: inherit; }
 .field input::placeholder,
 .field textarea::placeholder { color: var(--ink-faint); }
 
+.form-error {
+  font-size: 14.5px;
+  color: #B3261E;
+}
+
 .field input:focus,
 .field textarea:focus {
   outline: none;
@@ -773,7 +798,7 @@ input, textarea, select, button { font: inherit; color: inherit; }
   position: fixed;
   inset: 0;
   z-index: 60;
-  background: rgba(8, 20, 15, 0.58);
+  background: rgba(35, 38, 51, 0.58);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -788,7 +813,7 @@ input, textarea, select, button { font: inherit; color: inherit; }
   max-height: 86vh;
   overflow: auto;
   padding: 34px 36px 32px;
-  box-shadow: 0 30px 70px -30px rgba(8, 20, 15, 0.6);
+  box-shadow: 0 30px 70px -30px rgba(35, 38, 51, 0.6);
 }
 
 .modal-head {
@@ -810,7 +835,7 @@ input, textarea, select, button { font: inherit; color: inherit; }
   font-family: var(--font-display);
   font-size: 30px;
   font-weight: 600;
-  color: var(--heading);
+  color: var(--title);
   line-height: 1.12;
 }
 
@@ -943,30 +968,8 @@ input, textarea, select, button { font: inherit; color: inherit; }
 
   .flip { max-width: none; }
 
-  /* The hero copy was absolutely positioned over the artwork and sized in
-     container units. Once the artwork is this narrow the copy no longer fits
-     the empty area it was placed in, so it becomes a normal block above the
-     image — the same width at which the label column collapses. */
-  .hero-frame {
-    aspect-ratio: auto;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .hero-copy {
-    position: static;
-    order: -1;
-    left: auto;
-    top: auto;
-    width: auto;
-    padding: 26px var(--gutter) 20px;
-  }
-
-  .hero-title { font-size: 38px; }
-  .hero-rule { width: 52px; min-width: 0; margin-top: 16px; }
-  .hero-sub { font-size: 17px; margin-top: 14px; max-width: 46ch; }
-  .hero-img { height: auto; }
+  .hero { min-height: 520px; }
+  .hero-sub { max-width: 30em; }
 
   /* The program-structure table linearises into labelled blocks. */
   .ptable {
@@ -1012,11 +1015,23 @@ input, textarea, select, button { font: inherit; color: inherit; }
     --header-h: 156px;
   }
 
-  /* Hero copy already stacks above the artwork at 860px; just tighten it. */
-  .hero-copy { padding: 24px var(--gutter) 18px; }
-  .hero-title { font-size: 32px; }
-  .hero-rule { width: 44px; margin-top: 14px; }
-  .hero-sub { font-size: 16px; margin-top: 12px; max-width: none; }
+  /* The network gets its own band above the copy rather than sitting
+     behind it, so the lines never run through the text. */
+  .hero {
+    min-height: 0;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-network {
+    position: relative;
+    height: 240px;
+  }
+
+  .hero-inner { padding-top: 8px; padding-bottom: 40px; }
+  .hero-title { font-size: 42px; }
+  .hero-rule { width: 48px; margin-top: 18px; }
+  .hero-sub { font-size: 16.5px; margin-top: 14px; max-width: none; }
 
   /* Fixed-width cards become full-bleed within the column. */
   .card-pair,
@@ -1152,5 +1167,4 @@ input, textarea, select, button { font: inherit; color: inherit; }
 
 @media print {
   .site-header { position: static; }
-  .hero-frame { max-width: 100%; }
 }

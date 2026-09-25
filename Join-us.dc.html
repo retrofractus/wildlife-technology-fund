@@ -10,7 +10,7 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link href="assets/site.css" rel="stylesheet" />
 </helmet>
 <div class="site">
@@ -48,7 +48,7 @@
       <div style="max-width: 720px;">
         <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
           <div class="stack" style="gap: 34px;">
-            <p class="prose" style="max-width: 62ch;"><strong>Funders:</strong> if you&rsquo;re interested in supporting a program, please email Mal Graham directly at <a href="mailto:mal.graham@renphil.org">mal.graham@renphil.org</a> &mdash; no need to use the form.</p>
+            <p class="prose" style="max-width: 62ch;"><strong>Funders:</strong> if you&rsquo;re interested in supporting a program, please <a href="mailto:info@renphil.org">contact us</a> directly &mdash; no need to use the form.</p>
             <p class="prose" style="max-width: 62ch;">If you&rsquo;re a scientist with an interest in one of our program areas, tell us a little about yourself. We read every submission and will reach out when a program area lines up with your expertise.</p>
 
             <form onSubmit="{{ submit }}" class="stack" style="gap: 22px;">
@@ -76,15 +76,22 @@
                 <input name="linkedin" type="url" placeholder="https://www.linkedin.com/in/&hellip;" />
               </label>
 
+              <!-- Spam trap: hidden from people, filled in by bots. -->
+              <input name="website" type="text" tabIndex="-1" autoComplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0;" />
+
               <label class="field">
                 <span>Tell us about your interest</span>
                 <textarea name="interest" required="required" rows="7" placeholder="Which program area interests you, and what would you want to work on?"></textarea>
               </label>
 
               <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; padding-top: 4px;">
-                <button type="submit" class="btn">Send</button>
-                <div style="font-size: 13.5px; line-height: 1.5; color: var(--ink-soft);">Or email us directly at <a href="mailto:mal.graham@renphil.org">mal.graham@renphil.org</a></div>
+                <button type="submit" class="btn">{{ sendLabel }}</button>
+                <div style="font-size: 13.5px; line-height: 1.5; color: var(--ink-soft);">Or <a href="mailto:info@renphil.org">contact us</a> directly</div>
               </div>
+
+              <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+                <p role="alert" class="prose form-error">{{ errorText }} You can also <a href="mailto:info@renphil.org">contact us</a> directly.</p>
+              </sc-if>
             </form>
           </div>
         </sc-if>
@@ -122,8 +129,13 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
+/* Paste the /exec URL of the Google Apps Script web app here (setup steps
+   are at the top of apps-script.gs). Until it is set, the form shows an
+   error pointing people to the contact link, rather than losing responses. */
+const ENDPOINT = 'PASTE_APPS_SCRIPT_URL_HERE';
+
 class Component extends DCLogic {
-  state = { sent: false, name: '' };
+  state = { sent: false, sending: false, error: '', name: '' };
 
   componentDidMount() {
     this.onScroll = () => {
@@ -140,20 +152,60 @@ class Component extends DCLogic {
     if (this.onScroll) window.removeEventListener('scroll', this.onScroll);
   }
 
+  async send(form) {
+    if (this.state.sending) return;
+    const data = new FormData(form);
+    const payload = { submitted_at: new Date().toISOString() };
+    ['name', 'institution', 'email', 'expertise', 'linkedin', 'interest', 'website']
+      .forEach(k => { payload[k] = String(data.get(k) || '').trim(); });
+
+    if (ENDPOINT.startsWith('PASTE_')) {
+      this.setState({ error: 'This form isn\u2019t connected yet.' });
+      return;
+    }
+
+    this.setState({ sending: true, error: '' });
+    try {
+      // text/plain avoids a CORS preflight, which Apps Script can't answer.
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      // Apps Script returns 200 even when the script fails, and a sign-in page
+      // when the deployment isn't public, so check the body too.
+      let result;
+      try { result = JSON.parse(await res.text()); }
+      catch (e) { throw new Error('Collector returned HTML, not JSON; check the deployment is shared with "Anyone".'); }
+      if (!result.ok) throw new Error('Collector reported: ' + result.error);
+
+      this.setState({ sent: true, sending: false, name: payload.name });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      console.error('Join us submission failed:', err);
+      this.setState({
+        sending: false,
+        error: 'Your message didn\u2019t send. Please try again; nothing you typed has been lost.'
+      });
+    }
+  }
+
   renderVals() {
     const first = (this.state.name || '').trim().split(/\s+/)[0] || '';
     return {
       showForm: !this.state.sent,
       submitted: this.state.sent,
+      sendLabel: this.state.sending ? 'Sending\u2026' : 'Send',
+      hasError: !!this.state.error,
+      errorText: this.state.error,
       greetingName: first ? ', ' + first : '',
       headerRef: el => { this.headerEl = el; if (this.onScroll) this.onScroll(); },
       submit: e => {
         e.preventDefault();
-        const data = new FormData(e.target);
-        this.setState({ sent: true, name: data.get('name') || '' });
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        this.send(e.target);
       },
-      reset: () => this.setState({ sent: false, name: '' })
+      reset: () => this.setState({ sent: false, sending: false, error: '', name: '' })
     };
   }
 }

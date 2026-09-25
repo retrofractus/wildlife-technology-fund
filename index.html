@@ -10,7 +10,7 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link href="assets/site.css" rel="stylesheet" />
 </helmet>
 <div class="site">
@@ -42,8 +42,8 @@
   </header>
 
   <section data-screen-label="Hero" class="hero">
-    <div class="hero-frame">
-      <img src="assets/new_hero_image.png" alt="Illustrated map of forest, farmland and mountain terrain with wildlife monitoring stations linked by sensor routes" class="hero-img" />
+    <img src="assets/hero-network.svg" alt="" aria-hidden="true" class="hero-network" />
+    <div class="wrap hero-inner">
       <div class="hero-copy">
         <h1 class="hero-title">Wildlife Technology</h1>
         <div class="hero-rule"></div>
@@ -56,25 +56,12 @@
 
     <section id="about" data-screen-label="The problem" class="row row-rule band-first">
       <h2 class="h2">The problem</h2>
-      <p class="prose" style="max-width: 68ch;">From climate change to urbanization, ocean acidification to plastic pollution, our activities affect the quality of life in the wild in ways we are only just beginning to be able to measure. Many of these changes push humans and animals closer together, which creates or exacerbates challenges: wild animals eat our crops, spread diseases, kill livestock, and damage infrastructure. These multifaceted problems are usually examined from the perspective of conservation or human wellbeing, but real solutions can only come from considering wildlife and people at the same time &ndash; and the infrastructure for understanding wild animal welfare is stuck in the basic science phase.</p>
-    </section>
-
-    <section data-screen-label="What we do" class="row band">
-      <h2 class="h2">What we do</h2>
-      <div class="stack" style="gap: 34px;">
-        <div class="stack" style="gap: 18px; max-width: 68ch;">
-          <p class="prose">Wildlife Technology designs programs to close the gap between basic science and animal interventions. We use developing tools from the innovation landscape &mdash; ARPA-style coordinated research programs, milestone payments, focused research organizations &mdash; and apply them to the problems that will do the most to solve issues facing and caused by wildlife.</p>
-          <p class="prose">To do this, we focus on developing talent, scoping new program areas, and running coordinated, time-bound programs focused on vetted issues.</p>
-        </div>
-        <div class="cards">
-          <div class="panel card-pair">
-            <div style="font-size: 19px; letter-spacing: 0.005em;">Translation</div>
-            <div class="panel-muted" style="font-size: 14.5px; line-height: 1.5;">Taking candidate interventions from theory to reality</div>
-          </div>
-          <div class="panel card-pair">
-            <div style="font-size: 19px; letter-spacing: 0.005em;">Bottlenecks</div>
-            <div class="panel-muted" style="font-size: 14.5px; line-height: 1.5;">Finding where research has stagnated and resolving barriers</div>
-          </div>
+      <div class="stack" style="gap: 18px; max-width: 68ch;">
+        <p class="prose">From climate change to urbanization, ocean acidification to plastic pollution, our activities affect the quality of life in the wild in ways we are only just beginning to be able to measure. Many of these changes push humans and animals closer together, which creates or exacerbates challenges: wild animals eat our crops, spread diseases, kill livestock, and damage infrastructure. These multifaceted problems are usually examined from the perspective of conservation or human wellbeing, but real solutions can only come from considering wildlife and people at the same time &ndash; and the infrastructure for understanding wild animal welfare is stuck in the basic science phase.</p>
+        <p class="prose">To address this, we identify high-priority problems that research can solve, and run coordinated programming to bring the idea to reality.</p>
+        <div class="cta-row">
+          <span class="prose">For more, see</span>
+          <a href="About.dc.html" class="btn btn-auto">About the fund</a>
         </div>
       </div>
     </section>
@@ -82,7 +69,7 @@
     <section id="programs" data-screen-label="Current priorities" class="row band">
       <h2 class="h2">Current priorities</h2>
       <div class="stack" style="gap: 26px; max-width: 68ch;">
-        <p class="prose">We have several programs in different stages of scoping.</p>
+        <p class="prose">We have several programs in different stages of scoping. Some examples include:</p>
         <ol class="stack" style="margin: 0; padding: 0; list-style: none; gap: 22px;">
           <li class="numrow">
             <div class="num">1.</div>
@@ -102,62 +89,16 @@
           </li>
           <li class="numrow">
             <div class="num">3.</div>
-            <div onClick="{{ tog2 }}" style="display: flex; align-items: baseline; gap: 9px; font-size: 17px; line-height: 1.62; font-weight: 600; color: var(--heading); cursor: pointer;">The ecology of bird-window collisions<span style="font-size: 12px; font-weight: 400; color: var(--accent-ink);">{{ caret2 }}</span></div>
+            <div onClick="{{ tog2 }}" style="display: flex; align-items: baseline; gap: 9px; font-size: 17px; line-height: 1.62; font-weight: 600; color: var(--heading); cursor: pointer;">Wildlife vaccination<span style="font-size: 12px; font-weight: 400; color: var(--accent-ink);">{{ caret2 }}</span></div>
             <div></div>
             <sc-if value="{{ open2 }}" hint-placeholder-val="{{ true }}">
-              <p class="prose">Understanding the ecological and welfare costs of bird-window collisions, an understudied phenomenon affecting somewhere between hundreds of millions and billions of birds per year in the US alone.</p>
-            </sc-if>
-          </li>
-          <li class="numrow">
-            <div class="num">4.</div>
-            <div onClick="{{ tog3 }}" style="display: flex; align-items: baseline; gap: 9px; font-size: 17px; line-height: 1.62; font-weight: 600; color: var(--heading); cursor: pointer;">Wildlife vaccination<span style="font-size: 12px; font-weight: 400; color: var(--accent-ink);">{{ caret3 }}</span></div>
-            <div></div>
-            <sc-if value="{{ open3 }}" hint-placeholder-val="{{ true }}">
-              <p class="prose">Identifying and developing treatment for a disease that affects vast numbers of wild animals, but is ecologically safe to eliminate.</p>
+              <p class="prose">Identifying and developing treatment for a disease that affects significant numbers of wild animals, causes a threat to human health or economic interests, and is ecologically safe to address.</p>
             </sc-if>
           </li>
         </ol>
-        <p class="prose">We&rsquo;re also exploring several other areas as candidates for scoping, including vulture conservation, improving near-term ecological forecasting, better estimating invertebrate populations, and reducing reliance on managed pollinators.</p>
-      </div>
-    </section>
-
-    <section data-screen-label="Team" class="row band-lg">
-      <h2 class="h2">Team</h2>
-      <div class="cards">
-        <div class="panel card-person">
-          <img src="assets/mal-graham.png" alt="Mal Graham" />
-          <div class="card-person-meta">
-            <div>Mal Graham</div>
-            <div>Director</div>
-            <div>Wildlife Technology Fund</div>
-          </div>
-        </div>
-        <sc-if value="{{ showTeamPlaceholder }}" hint-placeholder-val="{{ true }}">
-          <div class="panel card-person">
-            <div class="card-person-meta" style="margin-top: auto;">Watch this space&hellip; our team is growing!</div>
-          </div>
-        </sc-if>
-      </div>
-    </section>
-
-    <section data-screen-label="Advisors" class="row" style="padding-top: 40px;">
-      <h2 class="h2">Advisors</h2>
-      <div class="cards">
-        <div class="panel card-person">
-          <img src="assets/brad-ringeisen.png" alt="Brad Ringeisen" />
-          <div class="card-person-meta">
-            <div>Brad Ringeisen,</div>
-            <div>Director, Innovative</div>
-            <div>Genomics Institute</div>
-          </div>
-        </div>
-        <div class="panel card-person">
-          <img src="assets/nitin-sekar.png" alt="Nitin Sekar" />
-          <div class="card-person-meta">
-            <div>Nitin Sekar,</div>
-            <div>Director for Coexistence,</div>
-            <div>Conservation X Labs</div>
-          </div>
+        <div class="cta-row">
+          <span class="prose">See more</span>
+          <a href="Current-programs.dc.html" class="btn btn-auto">Current programs</a>
         </div>
       </div>
     </section>
@@ -165,7 +106,7 @@
     <section id="join" data-screen-label="Supporting our work" class="row band-last">
       <h2 class="h2">Supporting our work</h2>
       <div class="stack" style="gap: 18px; max-width: 68ch;">
-        <p class="prose">The Wildlife Technology Fund is primarily supported by the EA Animal Welfare Fund. If you&rsquo;d like to support our work, <a href="mailto:info@renphil.org">contact us</a></p>
+        <p class="prose">The Wildlife Technology Fund is primarily supported by the EA Animal Welfare Fund. If you&rsquo;d like to support our work, <a href="mailto:info@renphil.org">contact us</a>.</p>
         <p class="prose">If you&rsquo;re a scientist with an interest in one of our program areas, you can let us know by filling out <a href="Join-us.dc.html">this form</a>.</p>
       </div>
     </section>
@@ -189,7 +130,7 @@
   </footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;collapsePriorities&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;showTeamPlaceholder&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;collapsePriorities&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;}}">
 class Component extends DCLogic {
   state = { open: null };
 
@@ -222,10 +163,9 @@ class Component extends DCLogic {
 
   renderVals() {
     const v = {
-      showTeamPlaceholder: this.props.showTeamPlaceholder ?? true,
       headerRef: el => { this.headerEl = el; if (this.onScroll) this.onScroll(); }
     };
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 3; i++) {
       v['open' + i] = this.isOpen(i);
       v['caret' + i] = (this.props.collapsePriorities ?? true) ? (this.isOpen(i) ? '▾' : '▸') : '';
       v['tog' + i] = this.toggle(i);

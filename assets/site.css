@@ -1,0 +1,1156 @@
+/* ==========================================================================
+   Wildlife Technology Fund — shared stylesheet
+   --------------------------------------------------------------------------
+   The pages are built with the `dc` runtime and style most elements inline.
+   Inline styles can't carry media queries, so everything that has to respond
+   to viewport width lives here, hung off a small set of structural classes.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Tokens
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* Type.
+     The logo is set in Plain Medium (licensed, not web-loaded). Cormorant
+     Garamond carries display type — a Garamond with enough contrast to sit
+     beside a geometric sans without competing with it. Inter carries body and
+     UI copy; it is the closest widely-available relative of Plain, so running
+     text reads as a continuation of the logo. Both are on the Renaissance
+     Philanthropy font list. */
+  --font-display: 'Cormorant Garamond', 'Cormorant', Garamond, 'Times New Roman', serif;
+  --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* Brand green, sampled from the logo lockup. */
+  --accent: #00CE80;
+  --accent-strong: #00A868;      /* pressed / hover fill */
+  --accent-ink: #006B41;         /* green that is legible as text on --bg (6.3:1) */
+  --accent-line: rgba(0, 206, 128, 0.45);
+  --accent-hairline: rgba(0, 206, 128, 0.30);
+  --accent-faint: rgba(0, 206, 128, 0.14);
+  --on-accent: #052A1B;          /* text sitting on an --accent fill */
+
+  /* Light surfaces. --bg matches the hero artwork's own background exactly, so
+     the capped hero frame blends into the page with no visible seam. */
+  --bg: #F3F5F6;
+  --bg-raised: #E7EDEA;          /* header once scrolled, table headings */
+  --panel: #FFFFFF;
+
+  /* Dark surfaces. */
+  --surface: #12251E;
+  --surface-2: #0A1913;
+  --on-surface: #E6F1EB;
+  --on-surface-muted: #A3BDB1;
+  --on-surface-faint: rgba(230, 241, 235, 0.62);
+
+  /* Ink. */
+  --ink: #16211D;
+  --ink-muted: #4C5A55;
+  --ink-soft: rgba(22, 33, 29, 0.66);
+  --ink-faint: rgba(22, 33, 29, 0.55);
+  --heading: #0F2F24;
+
+  /* Lines. */
+  --hairline: rgba(15, 47, 36, 0.16);
+  --hairline-strong: rgba(15, 47, 36, 0.30);
+
+  /* Metrics. */
+  --wrap: 1180px;
+  --gutter: 32px;
+  --col: 200px;                  /* the label column in the two-column rows */
+  --col-gap: 40px;
+  --header-h: 132px;             /* measured height of the sticky header */
+  --hero-ratio: 1.7878;          /* 1677 / 938, the hero artwork's aspect */
+}
+
+/* --------------------------------------------------------------------------
+   2. Base
+   -------------------------------------------------------------------------- */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-body);
+  color: var(--ink);
+}
+
+* { box-sizing: border-box; }
+
+img { max-width: 100%; }
+
+a {
+  color: var(--heading);
+  text-decoration-color: var(--accent-line);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--accent-ink);
+  text-decoration-color: var(--accent-ink);
+}
+
+input, textarea, select, button { font: inherit; color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Display type. Cormorant is drawn small on the body, so display sizes are
+   nudged up and tracked in slightly to hold weight against the sans. */
+.display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--heading);
+}
+
+/* --------------------------------------------------------------------------
+   3. Shell
+   -------------------------------------------------------------------------- */
+
+.site {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   4. Header
+   -------------------------------------------------------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--accent-hairline);
+  transition: background 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+/* Toggled from each page's scroll handler. */
+.site-header.is-scrolled {
+  background: var(--bg-raised);
+  box-shadow: 0 10px 22px -20px rgba(10, 25, 19, 0.55);
+  border-bottom-color: var(--accent-line);
+}
+
+.header-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px;
+  align-items: end;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 10px;
+}
+
+.header-brand {
+  display: block;
+  padding-top: 18px;
+  text-decoration: none;
+  min-width: 0;
+}
+
+.header-logo {
+  height: 72px;
+  width: auto;
+  display: block;
+  mix-blend-mode: multiply;
+  margin: -16px 0 -13px -17px;
+}
+
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  border-top: 1px solid var(--accent);
+  padding-top: 10px;
+}
+
+.header-rp {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-rp img {
+  width: 26px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+  flex: none;
+}
+
+.header-meta a {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.header-meta a:hover { color: var(--accent-ink); }
+
+.header-links {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.site-nav {
+  display: flex;
+  gap: 34px;
+  padding: 13px 0 14px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: var(--heading);
+  white-space: nowrap;
+}
+
+.site-nav a:hover { color: var(--accent-ink); }
+
+.site-nav a.is-active {
+  color: var(--accent-ink);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Hero
+   --------------------------------------------------------------------------
+   The artwork is a fixed 1677x938. Left to `width: 100%`, it grew to ~810px
+   tall on a 1440px display and pushed its own bottom edge well past the fold.
+   The frame below caps the artwork's width to whatever keeps its full height
+   inside the viewport once the header is accounted for, so the bottom of the
+   hero lands at the fold on a normal laptop. Nothing is cropped — the frame
+   just letterboxes into --bg, which is the artwork's own background colour.
+   -------------------------------------------------------------------------- */
+
+.hero {
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-frame {
+  position: relative;
+  width: 100%;
+  max-width: min(1600px, calc((100svh - var(--header-h)) * var(--hero-ratio)));
+  aspect-ratio: 1677 / 938;
+  container-type: inline-size;
+}
+
+.hero-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.hero-copy {
+  position: absolute;
+  left: 4.5%;
+  top: 17%;
+  width: 38%;
+}
+
+.hero-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: max(34px, 4.35cqw);
+  line-height: 1.02;
+  color: var(--heading);
+  letter-spacing: -0.012em;
+}
+
+.hero-rule {
+  width: 4.4cqw;
+  min-width: 44px;
+  height: 2px;
+  background: var(--accent);
+  margin: max(14px, 1.9cqw) 0 0;
+}
+
+.hero-sub {
+  margin: max(12px, 1.7cqw) 0 0;
+  font-size: max(14.5px, 1.42cqw);
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 20em;
+  text-wrap: pretty;
+}
+
+/* --------------------------------------------------------------------------
+   6. Section rows
+   --------------------------------------------------------------------------
+   `.row` is the label-column layout used on every page: a 200px heading
+   column beside the content. It collapses to a single column on narrow
+   screens, which is most of what was overlapping before.
+   -------------------------------------------------------------------------- */
+
+.row {
+  display: grid;
+  grid-template-columns: var(--col) minmax(0, 1fr);
+  gap: var(--col-gap);
+}
+
+.row-rule {
+  border-top: 1px solid var(--hairline);
+  padding-top: 52px;
+}
+
+.section {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 60px var(--gutter) 0;
+  width: 100%;
+}
+
+.section-last { padding-bottom: 96px; }
+
+/* Vertical rhythm for the homepage's stacked sections. */
+.band { padding-top: 64px; }
+.band-lg { padding-top: 72px; }
+.band-first { margin-top: 72px; }
+.band-last { padding: 72px 0 90px; }
+
+.h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--heading);
+  letter-spacing: -0.01em;
+}
+
+.h2-note {
+  margin: 10px 0 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.page-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.06;
+  color: var(--heading);
+  letter-spacing: -0.012em;
+}
+
+.lede {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 58ch;
+  text-wrap: pretty;
+}
+
+.prose {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.62;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+/* Numbered / bulleted rows: a narrow marker column beside the text. */
+.numrow {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 6px 10px;
+}
+
+.numrow-wide {
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 8px 12px;
+}
+
+.num {
+  font-size: 17px;
+  line-height: 1.62;
+  color: var(--accent-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 10px;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   7. Cards
+   -------------------------------------------------------------------------- */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.panel {
+  background: var(--surface);
+  border-radius: 14px;
+  color: var(--on-surface);
+}
+
+.panel-muted { color: var(--on-surface-muted); }
+
+/* Fixed-size cards on desktop; they go full-width on phones. */
+.card-pair {
+  width: 262px;
+  min-height: 176px;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.card-person {
+  width: 210px;
+  min-height: 212px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  text-align: left;
+}
+
+.card-person img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
+
+.card-person-meta {
+  margin-top: 14px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--on-surface-muted);
+}
+
+.card-button {
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.card-button:hover {
+  background: var(--surface-2);
+  transform: translateY(-2px);
+}
+
+.card-cta {
+  margin-top: 12px;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--on-surface-faint);
+}
+
+/* About page flip cards. */
+.flip {
+  flex: 1 1 265px;
+  min-width: 0;
+  max-width: 340px;
+  height: 318px;
+  perspective: 1400px;
+  cursor: pointer;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 560ms cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flip-front {
+  background: var(--surface);
+  padding: 26px 24px;
+  gap: 22px;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+  background: var(--surface-2);
+  padding: 22px 22px 18px;
+  gap: 12px;
+  overflow: auto;
+}
+
+/* Light bordered cards (Rodenticide "solution" trio). */
+.card-outline {
+  flex: 1 1 240px;
+  min-width: 0;
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--panel);
+}
+
+.eyebrow {
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+
+.eyebrow-muted {
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* Stat cards. */
+.card-stat {
+  flex: 1 1 250px;
+  min-width: 0;
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.stat-figure {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat-body {
+  font-size: 14.5px;
+  line-height: 1.52;
+  color: var(--on-surface-muted);
+}
+
+/* --------------------------------------------------------------------------
+   8. Pills, chips, buttons
+   -------------------------------------------------------------------------- */
+
+.pill {
+  align-self: flex-start;
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+  border: 1px solid var(--accent-line);
+  background: var(--accent-faint);
+  border-radius: 999px;
+  padding: 5px 11px;
+  white-space: nowrap;
+}
+
+.pill-on-dark {
+  color: var(--on-accent);
+  background: var(--accent);
+  border-color: transparent;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  font-size: 14.5px;
+  color: var(--heading);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 999px;
+  padding: 7px 15px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--on-accent);
+  border: none;
+  border-radius: 8px;
+  padding: 13px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 150ms ease;
+}
+
+.btn:hover {
+  background: var(--accent-strong);
+  color: var(--on-accent);
+}
+
+.btn-dark {
+  background: var(--surface);
+  color: var(--on-surface);
+}
+
+.btn-dark:hover {
+  background: var(--surface-2);
+  color: var(--on-surface);
+}
+
+.btn-quiet {
+  background: none;
+  border: none;
+  color: var(--on-surface-muted);
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-quiet:hover { color: var(--on-surface); }
+
+/* --------------------------------------------------------------------------
+   9. Forms
+   -------------------------------------------------------------------------- */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field > span {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--heading);
+  letter-spacing: 0.01em;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  background: var(--panel);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 6px;
+  padding: 11px 13px;
+  font-size: 15px;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+
+.field textarea {
+  padding: 12px 13px;
+  line-height: 1.55;
+  resize: vertical;
+  min-height: 150px;
+}
+
+.field input::placeholder,
+.field textarea::placeholder { color: var(--ink-faint); }
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-faint);
+}
+
+/* --------------------------------------------------------------------------
+   10. Program structure table
+   -------------------------------------------------------------------------- */
+
+.ptable {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr) 96px;
+  gap: 1px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 14.5px;
+}
+
+.ptable-head {
+  background: var(--bg-raised);
+  padding: 12px 16px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--heading);
+  font-weight: 600;
+}
+
+.ptable-cell {
+  background: var(--panel);
+  padding: 16px;
+  line-height: 1.55;
+}
+
+.ptable-phase {
+  background: var(--panel);
+  padding: 16px;
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+.ptable-budget {
+  background: var(--panel);
+  padding: 16px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.ptable-gate {
+  padding-top: 10px;
+  color: var(--accent-ink);
+  font-size: 13.5px;
+}
+
+/* The label each cell gets on phones, once the table linearises. */
+.ptable-cell::before,
+.ptable-phase::before,
+.ptable-budget::before { display: none; }
+
+/* --------------------------------------------------------------------------
+   11. Modals
+   -------------------------------------------------------------------------- */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(8, 20, 15, 0.58);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+}
+
+.modal-panel {
+  background: var(--bg);
+  border-radius: 16px;
+  max-width: 660px;
+  width: 100%;
+  max-height: 86vh;
+  overflow: auto;
+  padding: 34px 36px 32px;
+  box-shadow: 0 30px 70px -30px rgba(8, 20, 15, 0.6);
+}
+
+.modal-head {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.modal-head img {
+  width: 112px;
+  height: 112px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+  flex: none;
+}
+
+.modal-name {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--heading);
+  line-height: 1.12;
+}
+
+/* --------------------------------------------------------------------------
+   12. Footer
+   -------------------------------------------------------------------------- */
+
+.site-footer { border-top: 1px solid var(--accent); }
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: auto auto auto minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+  padding-top: 30px;
+  padding-bottom: 44px;
+}
+
+.footer-inner img {
+  width: 156px;
+  height: auto;
+  display: block;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 14px;
+  line-height: 1.5;
+  padding-top: 6px;
+}
+
+.footer-col a {
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.footer-col a:hover { color: var(--accent-ink); }
+
+.footer-copy {
+  font-size: 14px;
+  color: var(--ink-soft);
+  padding-top: 6px;
+  text-align: right;
+}
+
+/* ==========================================================================
+   13. Responsive
+   --------------------------------------------------------------------------
+   Everything above is the desktop layout. Below, the fixed columns and fixed
+   card widths that were colliding on phones are released in width order.
+   ========================================================================== */
+
+/* --- Tablet / small laptop ------------------------------------------------ */
+@media (max-width: 1020px) {
+  :root {
+    --col: 164px;
+    --col-gap: 32px;
+  }
+
+  .footer-inner { gap: 40px; }
+}
+
+/* --- Narrow tablet -------------------------------------------------------- */
+@media (max-width: 860px) {
+  :root {
+    --gutter: 24px;
+    --col-gap: 24px;
+  }
+
+  /* The label column stops being a column. */
+  .row { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .row-rule { padding-top: 40px; }
+
+  .section { padding-top: 48px; }
+  .section-last { padding-bottom: 64px; }
+
+  .page-title { font-size: 34px; }
+  .lede { font-size: 18px; }
+
+  /* Header stacks: brand above the Renaissance Philanthropy block. */
+  .header-top {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
+  }
+
+  .header-meta {
+    border-top: none;
+    padding-top: 0;
+    flex-wrap: wrap;
+    gap: 16px 26px;
+  }
+
+  .header-brand { padding-top: 14px; }
+  .header-logo { height: 62px; margin: -14px 0 -11px -15px; }
+
+  /* Once the header stacks it is far too tall to pin to the top of a phone
+     screen, so it scrolls away with the rest of the page instead. */
+  .site-header {
+    position: static;
+    background: var(--bg);
+    box-shadow: none;
+  }
+
+  .site-header.is-scrolled {
+    background: var(--bg);
+    box-shadow: none;
+    border-bottom-color: var(--accent-hairline);
+  }
+
+  :root { --header-h: 168px; }
+
+  .band { padding-top: 48px; }
+  .band-lg { padding-top: 52px; }
+  .band-first { margin-top: 48px; }
+  .band-last { padding: 52px 0 64px; }
+
+  /* Footer drops to two columns; the copyright stops hugging the right edge. */
+  .footer-inner {
+    grid-template-columns: auto auto;
+    gap: 28px 40px;
+  }
+
+  .footer-copy {
+    text-align: left;
+    grid-column: 1 / -1;
+  }
+
+  .flip { max-width: none; }
+
+  /* The hero copy was absolutely positioned over the artwork and sized in
+     container units. Once the artwork is this narrow the copy no longer fits
+     the empty area it was placed in, so it becomes a normal block above the
+     image — the same width at which the label column collapses. */
+  .hero-frame {
+    aspect-ratio: auto;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-copy {
+    position: static;
+    order: -1;
+    left: auto;
+    top: auto;
+    width: auto;
+    padding: 26px var(--gutter) 20px;
+  }
+
+  .hero-title { font-size: 38px; }
+  .hero-rule { width: 52px; min-width: 0; margin-top: 16px; }
+  .hero-sub { font-size: 17px; margin-top: 14px; max-width: 46ch; }
+  .hero-img { height: auto; }
+
+  /* The program-structure table linearises into labelled blocks. */
+  .ptable {
+    grid-template-columns: minmax(0, 1fr);
+    font-size: 15px;
+  }
+
+  .ptable-head { display: none; }
+
+  .ptable-phase {
+    padding: 14px 16px 0;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .ptable-phase::before {
+    display: inline;
+    content: 'Phase ';
+  }
+
+  .ptable-cell { padding: 8px 16px 14px; }
+
+  .ptable-budget {
+    text-align: left;
+    padding: 0 16px 16px;
+    font-weight: 600;
+    color: var(--accent-ink);
+  }
+
+  .ptable-budget::before {
+    display: inline;
+    content: 'Budget: ';
+    font-weight: 400;
+    color: var(--ink-soft);
+  }
+}
+
+/* --- Phone ---------------------------------------------------------------- */
+@media (max-width: 680px) {
+  :root {
+    --gutter: 20px;
+    --header-h: 156px;
+  }
+
+  /* Hero copy already stacks above the artwork at 860px; just tighten it. */
+  .hero-copy { padding: 24px var(--gutter) 18px; }
+  .hero-title { font-size: 32px; }
+  .hero-rule { width: 44px; margin-top: 14px; }
+  .hero-sub { font-size: 16px; margin-top: 12px; max-width: none; }
+
+  /* Fixed-width cards become full-bleed within the column. */
+  .card-pair,
+  .card-person {
+    width: 100%;
+    min-height: 0;
+  }
+
+  .card-person img { max-width: 260px; }
+
+  .cards { gap: 16px; }
+
+  .flip {
+    flex: 1 1 100%;
+    height: auto;
+    min-height: 300px;
+    perspective: none;
+    cursor: default;
+  }
+
+  /* Flipping a full-width card is fussy on touch, so the two faces stack into
+     a single card instead — heading on the darker header, detail below. */
+  .flip-inner {
+    transform: none !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    height: auto;
+    transform-style: flat;
+  }
+
+  .flip-face {
+    position: static;
+    inset: auto;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+    border-radius: 0;
+  }
+
+  .flip-front {
+    border-radius: 14px 14px 0 0;
+    gap: 10px;
+    padding: 22px 22px 18px;
+  }
+
+  .flip-back {
+    transform: none;
+    overflow: visible;
+    border-radius: 0 0 14px 14px;
+    padding: 4px 22px 20px;
+  }
+
+  .flip-face .flip-hint,
+  .flip-back-title { display: none; }
+
+  .site-nav {
+    gap: 22px;
+    font-size: 17px;
+    padding: 11px 0 12px;
+    flex-wrap: wrap;
+  }
+
+  .header-meta { font-size: 12px; gap: 12px 18px; }
+  .header-logo { height: 54px; margin: -12px 0 -10px -13px; }
+
+  /* Secondary Renaissance Philanthropy links; they also sit in the footer, so
+     on a phone the header keeps only the attribution. */
+  .header-links { display: none; }
+
+  .band { padding-top: 40px; }
+  .band-lg { padding-top: 44px; }
+  .band-first { margin-top: 40px; }
+  .band-last { padding: 44px 0 56px; }
+
+  .page-title { font-size: 29px; }
+  .lede { font-size: 17px; }
+  .prose { font-size: 16.5px; }
+
+  .footer-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    padding-bottom: 36px;
+  }
+
+  .footer-inner img { width: 132px; }
+
+  .modal { padding: 14px; align-items: flex-start; }
+
+  .modal-panel {
+    padding: 24px 20px 22px;
+    max-height: calc(100svh - 28px);
+    margin-top: 14px;
+  }
+
+  .modal-head { gap: 16px; }
+
+  .modal-head img { width: 76px; height: 76px; }
+
+  .modal-name { font-size: 24px; }
+
+  .numrow { grid-template-columns: 22px minmax(0, 1fr); }
+  .numrow-wide { grid-template-columns: 24px minmax(0, 1fr); }
+
+  .card-outline { flex-basis: 100%; }
+  .card-stat { flex-basis: 100%; }
+
+  .btn { width: 100%; text-align: center; }
+  .btn-auto { width: auto; }
+}
+
+/* --- Very narrow ---------------------------------------------------------- */
+@media (max-width: 380px) {
+  :root { --gutter: 16px; }
+
+  .site-nav { gap: 16px; font-size: 16px; }
+  .header-logo { height: 48px; margin: -10px 0 -9px -11px; }
+}
+
+/* --------------------------------------------------------------------------
+   14. Preferences
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .site-header { position: static; }
+  .hero-frame { max-width: 100%; }
+}

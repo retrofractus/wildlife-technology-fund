@@ -140,6 +140,15 @@
             </div>
             <div class="card-cta">Read bio</div>
           </button>
+          <button onClick="{{ openDavid }}" class="panel card-person card-button">
+            <img src="assets/david-roodman-headshot1.jpg" alt="David Roodman" />
+            <div class="card-person-meta">
+              <div>David Roodman,</div>
+              <div>Former Senior Advisor,</div>
+              <div>Coefficient Giving</div>
+            </div>
+            <div class="card-cta">Read bio</div>
+          </button>
         </div>
       </div>
     </section>
@@ -242,6 +251,26 @@
       </div>
     </div>
   </sc-if>
+
+  <sc-if value="{{ bioDavid }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeBio }}" class="modal">
+      <div onClick="{{ stop }}" class="modal-panel">
+        <div class="modal-head">
+          <img src="assets/david-roodman-headshot1.jpg" alt="David Roodman" />
+          <div class="stack" style="gap: 4px;">
+            <div class="modal-name">David Roodman</div>
+            <div style="font-size: 14.5px; color: var(--ink-muted);">Independent Economist</div>
+          </div>
+        </div>
+        <div class="stack" style="gap: 15px; padding-top: 22px;">
+          <p class="prose" style="font-size: 16px; line-height: 1.6;">David Roodman is an independent economist and consultant. Before returning to freelance work in 2026, David spent 11 years as a Senior Advisor at GiveWell and Coefficient Giving (formerly Open Philanthropy), where he reanalyzed influential studies on topics ranging from deworming and malaria eradication to incarceration and crime. Earlier, he spent 11 years as a fellow at the Center for Global Development. David advises the Fund on evidence, global health and development policy, and how to weigh competing research when deciding what to fund.</p>
+        </div>
+        <div style="padding-top: 26px;">
+          <button onClick="{{ closeBio }}" class="btn btn-auto">Close</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
@@ -294,9 +323,11 @@ class Component extends DCLogic {
       bioMal: bio === 'mal',
       bioBrad: bio === 'brad',
       bioNitin: bio === 'nitin',
+      bioDavid: bio === 'david',
       openMal: () => this.setState({ bio: 'mal' }),
       openBrad: () => this.setState({ bio: 'brad' }),
       openNitin: () => this.setState({ bio: 'nitin' }),
+      openDavid: () => this.setState({ bio: 'david' }),
       closeBio: () => this.setState({ bio: null }),
       stop: e => e.stopPropagation()
     };
